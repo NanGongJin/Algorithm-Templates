@@ -1,19 +1,17 @@
 #include "head.cpp"
 
 namespace N_Queens {
-    int n = 13; // 超过13会超时
-    vector<array<int, 2>> p;
+    int n = 13, col[13]; // 超过13会超时
 
-    int dfs(int r) {
-        if (r == n) return 1;
+    int dfs(int row) {
+        if (row == n) return 1;
         int res = 0;
         for (int c = 0; c < n; c++) {
-            for (auto& [x, y] : p)
-                if (c == y || r - x == abs(c - y))
+            for (int r = 0; r < row; r++)
+                if (col[r] == c || abs(col[r] - c) == row - r)
                     goto end;
-            p.push_back({r, c});
-            res += dfs(r + 1);
-            p.pop_back();
+            col[row] = c;
+            res += dfs(row + 1);
             end:;
         }
         return res;

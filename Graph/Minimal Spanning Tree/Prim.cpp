@@ -6,28 +6,27 @@ using pii = pair<int, int>; // first：距离，second：节点编号
 const int N = 5005;
 
 vector<pii> e[N];
-int n, m, dis[N];
+int n, m;
 bool done[N];
 
 // 堆优化版 Prim，时间复杂度 O(mlogn)，适合稀疏图
+// 小优化：使用 dis 数组保存当前距离某个点的最小值，大于等于该值的边不加入堆
 int prim() {
     int ans = 0, cnt = 0;
     priority_queue<pii, vector<pii>, greater<>> q;
     q.push({ 0, 1 });
-    memset(dis, 0x7f, sizeof(dis));
-    while (!q.empty()) {
+    while (q.size()) {
         auto [w, u] = q.top(); q.pop();
         if (done[u]) continue;
-        ans += w;
-        if (++cnt == n) break;
-        done[u] = true;
-        for (auto& [v, w] : e[u]) {
-            if (done[v] || w >= dis[v]) continue; // 小优化
-            dis[v] = w, q.push({ w, v });
-        }
+        ans += w, done[u] = true;
+        if (++cnt == n) break; // 提前退出
+        for (auto& [v, w] : e[u])
+            if (!done[v]) q.push({ w, v });
     }
-    return cnt == n ? ans : -1; // 如果cnt != n，说明图不是连通的
+    return cnt == n ? ans : -1; // 如果 cnt != n，说明图不是连通的
 }
+
+int dis[N];
 
 // 朴素版 Prim，时间复杂度 O(n^2)，适合稠密图
 int prim_naive() {
