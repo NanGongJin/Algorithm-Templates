@@ -2,6 +2,10 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+/**
+ * 如果是有向图，可以有负权边，但不能有负环
+ * 如果是无向图，不能有负权边
+ */
 const int N = 1e6 + 5;
 int n, m;
 vector<pair<int, int>> e[N]; // 节点下标从1开始
