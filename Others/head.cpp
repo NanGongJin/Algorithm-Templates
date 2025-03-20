@@ -20,19 +20,7 @@ using vvd = vector<vd>;
 using vvld = vector<vld>;
 #define mp make_pair
 using lll = __int128_t;
-using __gnu_cxx::crope;
-using __gnu_cxx::rope; // rope<char>可用crope代替
-template<class V = null_type>
-using Trie = trie<string, V, trie_string_access_traits<>, pat_trie_tag, trie_prefix_search_node_update>;
-template<class K, class V = null_type, class Cmp = less<>>
-using rb = tree<K, V, Cmp, rb_tree_tag, tree_order_statistics_node_update>;
-template<class K, class V = null_type, class Cmp = less<>>
-using splay = tree<K, V, Cmp, splay_tree_tag, tree_order_statistics_node_update>;
-template<class K, class V = null_type, class Cmp = less<>>
-using ov = tree<K, V, Cmp, ov_tree_tag, tree_order_statistics_node_update>;
-using __gnu_pbds::cc_hash_table, __gnu_pbds::gp_hash_table; // faster read/write or insertion
-template<class T, class Cmp = less<T>> using heap = __gnu_pbds::priority_queue<T, Cmp, pairing_heap_tag>;
-#define priority_queue std::priority_queue
+// #define priority_queue std::priority_queue
 #define err(color) cout << "\033[" << color << "m"
 enum { red = 31, green, yellow, blue, purple, cyan }; // 31红，32绿，33黄，34蓝，35紫，36青
 #define cl "\033[0m" << endl
