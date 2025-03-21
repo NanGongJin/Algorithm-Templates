@@ -17,4 +17,7 @@ int __builtin_clz(unsigned);
 int __builtin_ctz(unsigned);
 
 // 最小元素
-#define lowbit(x) ((x) & -(x))
+#define lowbit(x) (x & -x)
+
+// 最大元素
+#define highbit(x) (x & (-x - 1))
