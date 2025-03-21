@@ -50,6 +50,8 @@ template<class T> bool chmin(T& a, T b) {
 const long double e = 2.7182818284590452354l; // 可以精确到第18位小数
 #define DEBUG printf("%d\n", __LINE__); fflush(stdout);
 
+random_device r; // 随机数生成器，返回 unsigned
+
 template<class T> void print(vector<T>& v, bool withSize) {
     if (withSize) cout << v.size() << endl;
     for (int i = 0; i < v.size(); i++)
