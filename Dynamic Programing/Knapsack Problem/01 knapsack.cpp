@@ -29,7 +29,7 @@ vector<int> print() { // 打印路径
 }
 
 int calc() { // 滚动数组优化
-    int dp[N] = {};
+    int dp[N] {};
     for (int i = 1; i <= n; i++)
         for (int j = V; j >= v[i]; j--) // 要从大到小
             if (dp[j] < dp[j - v[i]] + w[i])

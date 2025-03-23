@@ -30,7 +30,7 @@ vector<int> print() { // 打印路径
 }
 
 int solve() { // 滚动数组优化
-    int dp[N] = {};
+    int dp[N] {};
     for (int i = 0; i < n; i++)
         for (int j = v[i]; j <= V; j++) // 从小到大就是完全背包，从大到小是01背包
             if (dp[j] < dp[j - v[i]] + w[i])

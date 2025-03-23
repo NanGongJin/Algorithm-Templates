@@ -47,7 +47,7 @@ vector<int> print() { // 打印路径
 }
 
 int solve() { // 滚动数组优化
-    int dp[maxv] = {};
+    int dp[maxv] {};
     for (int i = 0; i < cnt; i++)
         for (int j = V; j >= v[i]; j--)
             if (dp[j] < dp[j - v[i]] + w[i])
