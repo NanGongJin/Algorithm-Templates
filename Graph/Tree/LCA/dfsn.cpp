@@ -16,15 +16,14 @@ void dfs(int u, int fa) {
 }
 
 void initST() {
-    for (int i = 1; i <= __lg(n); i++)
+    for (int i = 1; n >> i; i++)
         for (int j = 1; j + (1 << i) - 1 <= n; j++)
             // 父节点中时间戳最小的
             st[j][i] = M(st[j][i - 1], st[j + (1 << i - 1)][i - 1]);
 }
 
 int lca(int u, int v) {
-    if (u == v)
-        return u;
+    if (u == v) return u;
     if ((u = dfn[u]) > (v = dfn[v]))
         swap(u, v); // u <= v
     int d = __lg(v - u++); // 适用 u 是 v 的祖先节点的情况（关键）
