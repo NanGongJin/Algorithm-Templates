@@ -5,7 +5,7 @@ using namespace std;
 #define r(p) (p * 2 + 1)
 
 const int N = 1e5 + 5;
-int n, v[N + 1];
+int n, v[N];
 
 // 下标要从1开始，因为0 * 2并不是0号节点的左儿子
 struct node {
@@ -13,7 +13,7 @@ struct node {
 } t[N * 4];
 
 void up(int p) {
-    // t[p] = max(t[ls(p)], t[rs(p)]);
+    // t[p].v = max(t[l(p)].v, t[r(p)].v);
     t[p].v = t[l(p)].v + t[r(p)].v;
 }
 

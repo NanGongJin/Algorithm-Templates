@@ -7,7 +7,7 @@ const int N = 1005;
 int n, in[N]; // n节点数，in[]入度
 bool dir[N][N], inq[N]; // dir[i][j]：i->j，inq[]已入队
 // 用优先队列保证字典序最小
-priority_queue<int, vector<int>, greater<int>> q;
+priority_queue<int, vector<int>, greater<>> q;
 
 void init() {
     for (int i = 0; i < n; i++)
