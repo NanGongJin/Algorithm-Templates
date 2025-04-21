@@ -1,4 +1,4 @@
-#include <bits/extc++.h>
+#include <bits/stdc++.h>
 using namespace std;
 
 // 字符串分割
