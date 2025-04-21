@@ -4,9 +4,13 @@ using namespace __gnu_pbds;
 
 using __gnu_cxx::rope;
 /**
- * 1) 类似于字符串的动态数组
+ * 1) 类似于字符串的动态数组，但有如下区别：
+ *   1.1) 不支持 initializer_list 初始化
+ *   1.2) 不支持 +/+= 运算符
+ *   1.3) find 方法只支持查找单个元素
  * 2) push_front()/pop_front()
- * 3) mutable_begin()/mutable_end() 返回可修改的迭代器
+ * 3) mutable_reference_at(pos) 返回可修改的元素引用
+ * 4) mutable_begin()/mutable_end() 返回可修改的迭代器
  */
 
 using __gnu_cxx::crope; // rope<char>的别名
