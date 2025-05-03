@@ -10,7 +10,7 @@ using namespace std;
  */
 const int N = 1e5 + 5;
 int n, anc[N][20], d[N], dis[N];
-vector<pair<int, int>> e[N];
+vector<array<int, 2>> e[N];
 
 void dfs(int u, int fa) { // 调用：dfs(root, 0)
     d[u] = d[fa] + 1;

@@ -4,16 +4,16 @@ using namespace std;
 
 const int N = 5e5 + 5;
 // 下标从1开始，dfn[]：时间戳
-int n, m, rt, dfn[N], st[N][19], cnt;
+int n, m, rt, dfn[N], st[N][20], cnt;
 vector<int> e[N];
-
-#define M(x, y) (dfn[x] < dfn[y] ? x : y)
 
 void dfs(int u, int fa) {
     st[dfn[u] = ++cnt][0] = fa; // 存储父节点
     for (int v : e[u])
-        if (v != fa) dfs(v, u);
+    if (v != fa) dfs(v, u);
 }
+
+#define M(x, y) (dfn[x] < dfn[y] ? x : y)
 
 void initST() {
     for (int i = 1; n >> i; i++)

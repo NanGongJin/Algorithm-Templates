@@ -6,7 +6,7 @@ const int N = 1e5 + 5;
 int n, s[N], ans[N]; // 下标从1开始，ans[id]：编号为id的查询的答案
 bool vis[N]; // vis[u]为真代表u的祖先节点已经遍历完毕
 vector<int> e[N];
-vector<pair<int, int>> q[N]; // q[u]: { {v1, id1}, {v2, id2}... }
+vector<array<int, 2>> q[N]; // q[u]: { {v1, id1}, {v2, id2}... }
 
 void init() {
     iota(s + 1, s + 1 + n, 1);
