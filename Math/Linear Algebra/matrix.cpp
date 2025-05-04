@@ -3,7 +3,7 @@
 using namespace std;
 
 namespace Matrix {
-    const int maxn = 50; // 这里maxn不能大于718，否则会RE；
+    const int maxn = 50; // 这里 maxn 不能大于 718，否则会 RE
 
     template<typename T>
     struct matrix {

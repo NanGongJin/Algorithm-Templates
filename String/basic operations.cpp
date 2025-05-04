@@ -25,8 +25,8 @@ void regexSearch() {
     }
 }
 
-// basic_string
 /**
+ * basic_string
  * 1) 构造器
  *   1.1) basic_string<int> s {0, 1, 2}; // 初始化自定义元素
  *   1.2) basic_string<int> s(5, 0); // 初始化重复元素：5 个 0

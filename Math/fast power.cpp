@@ -19,7 +19,7 @@ void init_powTable() {
 
 int fastPow0(int x, int n) {
     int res = 1;
-    for (int i = 0; n >= 1ll << i && i < 64; i++)
+    for (int i = 0; n >> i && i < 64; i++)
         if (n & 1 << i)
             res = (ll)res * powTable[x][i] % mod;
     return res;
