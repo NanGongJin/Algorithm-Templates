@@ -58,6 +58,6 @@ using heap = __gnu_pbds::priority_queue<T, Cmp, pairing_heap_tag>;
  * 3) modify(it, x) 修改迭代器 it 指向的元素为 x
  * 4) erase(it) 删除迭代器 it 指向的元素
  * 5) erase_if(p) 删除满足谓词 p 的元素
- * 6）split(p, t) 将满足谓词 p 的元素分裂到堆 t 中
- * 7）join(t) 将堆 t 中的元素移动到当前堆中
+ * 6) split(p, t) 将满足谓词 p 的元素分裂到堆 t 中
+ * 7) join(t) 将堆 t 中的元素移动到当前堆中
  */
