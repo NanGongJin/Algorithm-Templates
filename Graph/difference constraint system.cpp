@@ -8,10 +8,16 @@ int n, m, dis[N], inq[N], cnt[N];
 vector<array<int, 2>> e[N];
 queue<int> q;
 
-// 如果存在负环，则无解，否则 dis 即为一组解；
-void spfa(int s) {
-    dis[s] = 0, inq[s] = cnt[s] = 1;
-    q.push(s);
+/**
+ * 设 c, d >= 0；
+ * b - a <= c && a - b <= -d
+ * <=> d <= b - a <= c
+ * d > c 时即无解 <=> 存在负环；
+ * 否则 dis 即为一组解
+ */
+void spfa() {
+    dis[0] = 0, inq[0] = cnt[0] = 1;
+    q.push(0);
     while (q.size()) {
         int u = q.front(); q.pop();
         inq[u] = 0;
@@ -32,6 +38,9 @@ void spfa(int s) {
 signed main() {
     cin >> n >> m;
     memset(dis, 0x3f, sizeof(dis));
+    // 每一个点连一条权重为 0 边
+    for (int i = 1; i <= n; i++)
+        e[0].push_back({i, 0});
     for (int t, u, v, w; m--;) {
         cin >> t >> u >> v;
         // a - b = 0 <=> a - b <= 0 && b - a <= 0
@@ -48,8 +57,7 @@ signed main() {
         if (t == 2)
             e[v].push_back({u, w});
     }
-    for (int i = 1; i <= n; i++)
-        if (!cnt[i]) spfa(i);
+    spfa();
     cout << "Yes\n";
     return 0;
 }
