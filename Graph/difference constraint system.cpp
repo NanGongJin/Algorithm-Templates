@@ -10,7 +10,7 @@ queue<int> q;
 
 /**
  * 设 c, d >= 0；
- * b - a <= c && a - b <= -d
+ * b - a <= c && a - b <= -d（b 至多比 a 大 c，a 至少比 b 小 d）
  * <=> d <= b - a <= c
  * d > c 时即无解 <=> 存在负环；
  * 否则 dis 即为一组解
@@ -41,21 +41,21 @@ signed main() {
     // 每一个点连一条权重为 0 边
     for (int i = 1; i <= n; i++)
         e[0].push_back({i, 0});
-    for (int t, u, v, w; m--;) {
-        cin >> t >> u >> v;
+    for (int t, a, b, c; m--;) {
+        cin >> t >> a >> b;
         // a - b = 0 <=> a - b <= 0 && b - a <= 0
         if (t == 3) {
-            e[u].push_back({v, 0});
-            e[v].push_back({u, 0});
+            e[b].push_back({a, 0});
+            e[a].push_back({b, 0});
             continue;
         }
-        cin >> w;
+        cin >> c;
         // a - b >= c <=> b - a <= -c
         if (t == 1)
-            e[u].push_back({v, -w});
+            e[a].push_back({b, -c});
         // a - b <= c
         if (t == 2)
-            e[v].push_back({u, w});
+            e[b].push_back({a, c});
     }
     spfa();
     cout << "Yes\n";
