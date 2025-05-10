@@ -8,13 +8,13 @@ deque<int> q; // 队头->队尾：小->大（用下标存储）
 
 void init() {
     for (int i = 1; i <= m; i++) {
-        while (!q.empty() && a[q.back()] >= a[i]) q.pop_back();
+        while (q.size() && a[q.back()] >= a[i]) q.pop_back();
         q.push_back(i);
     }
 }
 
 int slide(int index) {
-    while (!q.empty() && a[q.back()] >= a[index]) q.pop_back();
+    while (q.size() && a[q.back()] >= a[index]) q.pop_back();
     q.push_back(index);
     while (q.front() <= index - m) q.pop_front();
     return a[q.front()];

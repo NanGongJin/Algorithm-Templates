@@ -5,7 +5,7 @@ using namespace std;
 stack<int> st;
 
 void add(int x) { // 栈顶->栈底：小->大
-    while (!st.empty() && st.top() <= x) st.pop();
+    while (st.size() && st.top() <= x) st.pop();
     st.push(x);
 }
 

@@ -20,7 +20,7 @@ void init() {
 
 bool bfs() {
     int cnt = 0;
-    while (!q.empty()) { // 若队列为空后仍然有节点没有入队，说明不是DAG，拓扑排序无解
+    while (q.size()) { // 若队列为空后仍然有节点没有入队，说明不是DAG，拓扑排序无解
         int p = q.top();
         cout << p << ' ';
         for (int i = 0; i < n; i++)

@@ -18,7 +18,7 @@ int astar(int s, int t, int k) { // A*算法求第k短路径
     memset(times, 0, n << 2);
     priority_queue<point> q;
     q.push({ s, 0, 0 });
-    while (!q.empty()) {
+    while (q.size()) {
         point p = q.top();
         q.pop();
         times[p.id]++;

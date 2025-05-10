@@ -12,7 +12,7 @@ private:
 
     template<typename T>
     void prune(T& heap) { // 使堆顶不为待删除元素
-        while (!heap.empty()) {
+        while (heap.size()) {
             int num = heap.top();
             if (delayed.count(num)) {
                 --delayed[num];
@@ -79,7 +79,7 @@ private:
 
     template<typename T>
     void prune(T& heap) {
-        while (!heap.empty()) {
+        while (heap.size()) {
             int num = heap.top();
             if (delayed.count(num)) {
                 --delayed[num];
