@@ -8,6 +8,7 @@ int n, m, dis[N], inq[N], cnt[N];
 vector<array<int, 2>> e[N];
 queue<int> q;
 
+// 如果存在负环，则无解，否则 dis[i] 即为一组解；
 void spfa(int s) {
     dis[s] = 0, inq[s] = cnt[s] = 1;
     q.push(s);
