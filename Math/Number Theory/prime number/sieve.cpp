@@ -38,16 +38,19 @@ void euler_sieve(int n) {
 
 // 换用bitset后比欧拉筛时间效率还要高一点点
 bitset<N> vis;
+
 int E_sieve(int n) {
     for (int i = 2; i * i <= n; i++)
-        if (!vis[i])
-            for (int j = i * i; j <= n; j += i)
-                vis[j] = 1;
+    if (!vis[i])
+    for (int j = i * i; j <= n; j += i)
+    vis[j] = 1;
     int cnt = 0;
     for (int i = 2; i <= n; i++)
-        if (!vis[i]) cnt++;
+    if (!vis[i]) cnt++;
     return cnt;
 }
+
+int prime[N], cnt;
 
 // 另一种写法
 void getPrime(int n) {
