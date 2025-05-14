@@ -20,7 +20,7 @@ void regexSearch() {
     regex r("a\\w");
     smatch m;
     while (regex_search(s, m, r)) {
-        cout << m[0] << endl;
+        cout << m[0] << '\n';
         s = m.suffix().str();
     }
 }

@@ -8,7 +8,7 @@ int n, a[N], cnt[N];
 void countSort(int* begin, int* end) {
     int Min = *min_element(begin, end), Max = *max_element(begin, end);
     if (Max - Min + 1 > 1e7) {
-        cout << "范围过大" << endl;
+        cout << "范围过大" << '\n';
         return;
     }
     int n = end - begin;

@@ -15,7 +15,7 @@ void full_permutation(vector<int> arr) {
     sort(arr.begin(), arr.end());
     do {
         for (int i : arr) cout << i;
-        cout << endl;
+        cout << '\n';
     } while (next_permutation(arr.begin(), arr.end()));
 }
 
@@ -23,7 +23,7 @@ void full_permutation(vector<int> arr) {
 void Perm(vector<int>& nums, int first, int n) {
     if (first == n) {
         for (int i = 0; i < n; i++) cout << nums[i] << ' ';
-        cout << endl;
+        cout << '\n';
         return;
     }
     for (int i = first; i < n; i++) {
@@ -74,6 +74,6 @@ void print_subset(int n, vector<int> arr) {
         for (int j = 0; j < n; j++) {
             if (i & 1 << j) cout << arr[i];
         }
-        cout << endl;
+        cout << '\n';
     }
 }

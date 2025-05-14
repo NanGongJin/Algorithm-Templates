@@ -1,8 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
-using pii = pair<int, int>;
+using pii = array<int, 2>;
 using vi = vector<int>;
-using vpii = vector<pii>;
 
 const int N = 1e5;
 
@@ -15,7 +14,7 @@ namespace AdjacencyList {
         e1[v].push_back(u);
     }
 
-    vpii e2[N];
+    vector<pii> e2[N];
 
     void addedge(int u, int v, int w) {
         e2[u].push_back({ v, w });

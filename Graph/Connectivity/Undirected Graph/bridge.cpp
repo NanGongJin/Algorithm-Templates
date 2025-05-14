@@ -12,7 +12,7 @@ vector<int> e[N]; // 邻接表存图
  * 注意：在求割边的问题中，两个点不能构成一个“环”，中间是有割边的。
  * 没有割边的连通分量称之为边双连通分量
  */
-vector<pair<int, int>> bridge;
+vector<array<int, 2>> bridge;
 
 void dfs(int u, int fa) {
     low[u] = num[u] = ++dfn;

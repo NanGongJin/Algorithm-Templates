@@ -16,8 +16,8 @@ struct {
     // t：-1 查询删除，1 查询添加，0 加点
     int i, x, y, t;
     bool operator<(auto& o) {
-        if (x == o.x) // 坐标相同时，先加点，再查询
-            return !t;
+        // 坐标相同时，先加点，再查询
+        if (x == o.x) return !t;
         return x < o.x;
     }
 } op[N * 5];

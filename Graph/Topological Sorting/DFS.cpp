@@ -12,7 +12,7 @@ void dfs(int x, int cnt) { // 节点x的拓扑序是cnt
     if (cnt == n) { // 一个完整的拓扑序
         for (int i = 0; i < n; i++)
             cout << topo[i] << ' ';
-        cout << endl;
+        cout << '\n';
         return;
     }
     vis[x] = true;

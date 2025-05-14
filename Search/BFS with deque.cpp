@@ -1,7 +1,7 @@
 // BFS 与双端队列——解决边权为 0 或 1 的特殊图问题
 #include <bits/stdc++.h>
 using namespace std;
-using pii = pair<int, int>;
+using pii = array<int, 2>;
 
 // 例题：https://www.luogu.com.cn/problem/P4667
 const int N = 505;

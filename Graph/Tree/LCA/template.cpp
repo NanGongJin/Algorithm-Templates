@@ -189,8 +189,8 @@ struct LCA {
         assert(built);
 
         // We find the maximum of depth[u] - 2 * depth[x] + depth[v] where u, x, v occur in order in the Euler tour.
-        pair<int, int> u_max = {-1, -1};
-        pair<int, int> ux_max = {-1, -1};
+        array<int, 2> u_max = {-1, -1};
+        array<int, 2> ux_max = {-1, -1};
         pair<int, array<int, 2>> uxv_max = {-1, {-1, -1}};
 
         for (int node : euler) {
@@ -282,7 +282,7 @@ struct LCA {
     // Given a subset of k tree nodes, computes the minimal subtree that contains all the nodes (at most 2k - 1 nodes).
     // Returns a list of {node, parent} for every node in the subtree sorted by tour index. Runs in O(k log k).
     // Note that all parents also appear as a node in the return value, and nodes[0].first is the compressed root.
-    vector<pair<int, int>> compress_tree(vector<int> nodes) const {
+    vector<array<int, 2>> compress_tree(vector<int> nodes) const {
         if (nodes.empty())
             return {};
 
@@ -296,7 +296,7 @@ struct LCA {
         sort(nodes.begin() + k, nodes.end(), compare_tour);
         inplace_merge(nodes.begin(), nodes.begin() + k, nodes.end(), compare_tour);
         nodes.erase(unique(nodes.begin(), nodes.end()), nodes.end());
-        vector<pair<int, int>> result = {{nodes[0], -1}};
+        vector<array<int, 2>> result = {{nodes[0], -1}};
 
         for (int i = 1; i < int(nodes.size()); i++)
             result.emplace_back(nodes[i], get_lca(nodes[i], nodes[i - 1]));

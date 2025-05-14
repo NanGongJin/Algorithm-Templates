@@ -31,7 +31,7 @@ bool bfs() {
             }
         q.pop(), cnt++;
     }
-    cout << endl;
+    cout << '\n';
     if (cnt != n) return false;
     return true;
 }

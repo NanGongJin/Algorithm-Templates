@@ -9,7 +9,7 @@ using namespace std;
  */
 const int N = 1505, inf = 0x3f3f3f3f;
 int n, m, deg[N], dis[N];
-vector<pair<int, int>> e[N];
+vector<array<int, 2>> e[N];
 queue<int> q;
 
 void solve() {

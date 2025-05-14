@@ -23,7 +23,7 @@ using lll = __int128_t;
 // #define priority_queue std::priority_queue
 #define err(color) cout << "\033[" << color << "m"
 enum { red = 31, green, yellow, blue, purple, cyan }; // 31红，32绿，33黄，34蓝，35紫，36青
-#define cl "\033[0m" << endl
+#define cl "\033[0m" << '\n'
 #define yn(ans) printf("%s\n", (ans) ? "Yes" : "No")
 #define YN(ans) printf("%s\n", (ans) ? "YES" : "NO")
 #define rep(i, s, e, t) for (int i = s; i < e; i += t)
@@ -37,7 +37,6 @@ template<class T> bool chmin(T& a, T b) {
     if (a <= b) return false;
     a = b; return true;
 }
-#define endl '\n'
 #define ln(x) log(x)
 #define lg(x) log10(x)
 #define all(v) v.begin(), v.end()
@@ -53,10 +52,10 @@ const long double e = 2.7182818284590452354l; // 可以精确到第18位小数
 random_device r; // 随机数生成器，返回 unsigned
 
 template<class T> void print(vector<T>& v, bool withSize) {
-    if (withSize) cout << v.size() << endl;
+    if (withSize) cout << v.size() << '\n';
     for (int i = 0; i < v.size(); i++)
         cout << v[i] << " ";
-    cout << endl;
+    cout << '\n';
 }
 
 ostream& operator<<(ostream& stream, __int128_t x) { // 最大3.4*10^38
@@ -160,4 +159,4 @@ void print_time(void fun() = nullptr) {
 #pragma GCC optimize("-fexpensive-optimizations")
 #pragma GCC optimize("-funsafe-loop-optimizations")
 #pragma GCC optimize("inline-functions-called-once")
-#pragma GCC optimize("-fdelete-null-pointer-checks") 
+#pragma GCC optimize("-fdelete-null-pointer-checks")

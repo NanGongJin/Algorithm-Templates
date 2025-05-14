@@ -1,14 +1,13 @@
 #include <bits/stdc++.h>
 using namespace std;
-using pii = pair<int, int>;
-using vpii = vector<pii>;
+using pii = array<int, 2>;
 
 const int N = 1e5 + 5;
-int n, m, dis[N];
-vpii e[N];
+int n, m, dis[N]; // dis[i]为i到终点的最短距离
+vector<pii> e[N];
 
 struct point { // 评估函数：f = g + h（g为到起点s的距离，h为到终点t的距离）
-    int id, g, h;
+    int u, g, h;
     bool operator<(const point& p) const { return g + h > p.g + p.h; }
 };
 
@@ -19,15 +18,12 @@ int astar(int s, int t, int k) { // A*算法求第k短路径
     priority_queue<point> q;
     q.push({ s, 0, 0 });
     while (q.size()) {
-        point p = q.top();
-        q.pop();
-        times[p.id]++;
-        if (p.id == t && times[p.id] == k)
-            return p.g + p.h;
-        for (int i = 0, n = e[p.id].size(); i < n; i++) {
-            auto [v, w] = e[p.id][i];
-            q.push({ v, p.g + w, dis[v] }); // dis[i]为i到终点的最短距离
-        }
+        auto [u, g, h] = q.top(); q.pop();
+        times[u]++;
+        if (u == t && times[u] == k)
+            return g + h;
+        for (auto [v, w] : e[u])
+            q.push({ v, g + w, dis[v] });
     }
     return -1;
 }

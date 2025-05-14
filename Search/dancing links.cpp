@@ -68,7 +68,7 @@ void resume(int x) { // 恢复
 bool dance(int deph) {
     if (links[0].r == 0) { // head.r = head，说明有解
         for (int i = 1; i < deph; i++) cout << ans[i] << ' ';
-        cout << endl;
+        cout << '\n';
         return true;
     }
     int x = links[0].r;

@@ -409,7 +409,7 @@ public:
         if (tmp) r.digits[n + m - 1] = tmp;
         while (r.digits.back() == 0 && r.Size() > 1)
             r.digits.pop_back();
-        // cout<<1<<endl;
+        // cout<<1<<'\n';
         return r;
     }
     BigInt mul_fft(const BigInt &x) const {
@@ -431,7 +431,7 @@ public:
         }
         while (r.digits.back() == 0 && r.Size() > 1)
             r.digits.pop_back();
-        // cout<<2<<endl;
+        // cout<<2<<'\n';
         return r;
     }
     BigInt mul(const BigInt &x) const {

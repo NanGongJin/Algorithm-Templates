@@ -1,6 +1,7 @@
 // 三元环计数
 #include <bits/stdc++.h>
 using namespace std;
+using pii = array<int, 2>;
 
 const int N = 1e5 + 5;
 /**
@@ -9,13 +10,13 @@ const int N = 1e5 + 5;
  */
 int n, m, d[N], pre[N], ans;
 vector<int> e[N];
-vector<array<int, 2>> adj; // 存储边
+vector<pii> adj; // 存储边
 
 void solve() {
-    for (int i = m; i--;) {
-        auto [u, v] = adj[i];
+    for (auto [u, v] : adj) {
         // 度数小的点指向度数大的点，相同时，编号小的点指向编号大的点
-        if (d[u] > d[v] || d[u] == d[v] && u > v) swap(u, v);
+        if (d[u] > d[v] || d[u] == d[v] && u > v)
+            swap(u, v);
         e[u].push_back(v);
     }
     for (int i = 1; i <= n; i++) {

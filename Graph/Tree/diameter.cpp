@@ -4,7 +4,7 @@ using namespace std;
 
 const int N = 1e5 + 5;
 int n, dis[N]; // dis[i]：i到起点的距离
-vector<pair<int, int>> e[N]; // 到first的距离为second
+vector<array<int, 2>> e[N]; // 到first的距离为second
 
 void dfs(int u, int fa) {
     for (auto& [v, w] : e[u]) {
