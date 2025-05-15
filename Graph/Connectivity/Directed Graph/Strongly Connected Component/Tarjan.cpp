@@ -3,8 +3,8 @@
 using namespace std;
 
 const int N = 1e5 + 5;
-int n, low[N], num[N], dfn, cnt; // 节点下标从1开始
-int sccno[N], st[N], top;
+int n, sccno[N], cnt; // 节点下标从1开始
+int low[N], num[N], dfn, st[N], top;
 vector<int> e[N];
 
 void dfs(int u) {
