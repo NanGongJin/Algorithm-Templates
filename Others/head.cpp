@@ -75,6 +75,12 @@ string format(const pair<K, V>& x) { return format(x.first) + "," + format(x.sec
 		err(c) << format(i) << ' '; \
 	cout << cl; \
 
+template<class T> void debug(T x) { cerr << x << " \n"; }
+template<class T, class... Args> void debug(T x, Args... args) {
+    cerr << x << " | ";
+    debug<T>(args...);
+}
+
 template<typename A, typename B>
 ostream& operator<<(ostream &os, const pair<A, B> &p) {
 	return os << '(' << p.first << ", " << p.second << ')';
