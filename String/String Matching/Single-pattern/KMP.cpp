@@ -19,9 +19,7 @@ int Next[N];
  * 也就是p[0..j-1] + p[i]的最长公共前后缀
  */
 void getFail(string& p) {
-    int plen = p.length();
-    Next[0] = 0;
-    for (int i = 1; i < plen; i++) {
+    for (int i = 1; i < p.length(); i++) {
         int j = Next[i - 1];
         while (j && p[j] != p[i]) j = Next[j - 1];
         Next[i] = p[i] == p[j] ? j + 1 : 0;
@@ -29,14 +27,12 @@ void getFail(string& p) {
 }
 
 int kmp(string& s, string& p) {
-    int cnt = 0;
-    int slen = s.length(), plen = p.length();
     getFail(p);
-    int j = 0;
-    for (int i = 0; i < slen; i++) {
+    int cnt = 0, j = 0;
+    for (int i = 0; i < s.length(); i++) {
         while (j && s[i] != p[j]) j = Next[j - 1];
-        if (s[i] == p[j]) j++;
-        if (j == plen) { // 找到了
+        j += s[i] == p[j];
+        if (j == p.length()) { // 找到了
             cnt++;
             cout << i - j + 1 << ' '; // 在s中匹配到p的开始的下标
             j = Next[j - 1]; // 继续匹配
