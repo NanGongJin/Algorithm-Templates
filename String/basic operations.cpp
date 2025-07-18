@@ -2,14 +2,13 @@
 using namespace std;
 
 // 字符串分割
-vector<string> split(const string& s, char limit = ' ') {
+vector<string> split(string s, string limit = " ") {
     vector<string> res;
-    int i = -1, j = 0, len = s.length();
-    while (j < len) {
-        j = i + 1;
-        while (j < len && s[j] != limit) j++;
-        if (j > i + 1) res.push_back(string(s.begin() + i + 1, s.begin() + j));
-        i = j;
+    unique_ptr<char> str(strdup(s.c_str()));
+    char* token = strtok(str.get(), limit.c_str());
+    while (token) {
+        res.emplace_back(token);
+        token = strtok(NULL, limit.c_str());
     }
     return res;
 }
