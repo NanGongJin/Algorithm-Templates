@@ -2,14 +2,11 @@
 using namespace std;
 
 // 字符串分割
-vector<string> split(string s, string limit = " ") {
+vector<string> split(string s, string sep = " ") {
     vector<string> res;
     unique_ptr<char> str(strdup(s.c_str()));
-    char* token = strtok(str.get(), limit.c_str());
-    while (token) {
-        res.emplace_back(token);
-        token = strtok(NULL, limit.c_str());
-    }
+    for (char* p = strtok(str.get(), sep.c_str()); p; p = strtok(NULL, sep.c_str()))
+        res.emplace_back(p);
     return res;
 }
 
