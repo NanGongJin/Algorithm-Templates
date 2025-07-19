@@ -4,7 +4,7 @@ using namespace std;
     
 const int N = 3e5 + 5;
 char s[N]; // 下标从1开始，scanf("%s", s + 1)
-int n, sa[N], rk[N << 1], tmp[N << 1]; // sa[i]: 排名为 i 的后缀的起始位置，rk[i]: s[i..n] 的排名（范围1~n）
+int n, sa[N], rk[N << 1], tmp[N << 1]; // sa[i]: 排名为 i 的后缀的起始位置，rk[i]: s[i...n] 的排名（范围1~n）
 
 // 倍增法求 SA
 void init_sa() { // index: [1, n]
