@@ -40,7 +40,7 @@ int query(int x) {
 
 /**
  * 区间修改，区间查询[l, r]
- * sum(a[1..k]) = ∑ai = k * ∑di - ∑(i - 1) * di, (i in [1, k])
+ * sum(a[1...k]) = ∑ai = k * ∑di - ∑(i - 1) * di, (i in [1, k])
  * => 维护两个树状数组，一个是d[i]，另一个是(i - 1) * d[i]
  */
 int t1[N], t2[N];
