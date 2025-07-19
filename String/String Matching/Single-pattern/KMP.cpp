@@ -22,7 +22,7 @@ void getFail(string& p) {
     for (int i = 1; i < p.length(); i++) {
         int j = Next[i - 1];
         while (j && p[j] != p[i]) j = Next[j - 1];
-        Next[i] = p[i] == p[j] ? j + 1 : 0;
+        Next[i] = j + (p[i] == p[j]);
     }
 }
 
