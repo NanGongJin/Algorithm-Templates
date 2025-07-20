@@ -2,14 +2,27 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-const int N = 1e7 + 5;
-int a[N];
-void heapSort(int l, int r) {
-    priority_queue<int, vector<int>, greater<int>> heap;
-    for (int i = l; i <= r; i++)
-        heap.push(a[i]);
-    for (int i = l; i <= r; i++) {
-        a[i] = heap.top();
-        heap.pop();
+const int N = 1e6 + 5;
+int n, a[N]; // a[1...n]
+
+void adjust(int a[], int k, int n) {
+    int t = a[k];
+    for (k *= 2; k <= n; k *= 2) {
+        k += k < n && a[k + 1] > a[k];
+        if (a[k] <= t) break;
+        a[k / 2] = a[k];
+    }
+    a[k / 2] = t;
+}
+
+void heapify(int a[], int n) {
+    for (int i = n / 2; i; i--)
+        adjust(a, i, n);
+}
+
+void heapSort(int a[], int n) {
+    for (int i = n; i > 1; i--) {
+        swap(a[i], a[1]);
+        adjust(a, 1, i - 1);
     }
 }
