@@ -21,6 +21,7 @@ void heapify(int a[], int n) {
 }
 
 void heapSort(int a[], int n) {
+    heapify(a, n);
     for (int i = n; i > 1; i--) {
         swap(a[i], a[1]);
         adjust(a, 1, i - 1);
