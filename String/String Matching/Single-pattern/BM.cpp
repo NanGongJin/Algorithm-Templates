@@ -42,9 +42,9 @@ namespace BM {
         return m;//case3,都没有匹配的，移动m位（模式串长度）
     }
     int str_bm(char a[], int n, char b[], int m) {//a表示主串，长n; b表示模式串,长m
-        int* badchar = new int [256];//记录模式串中每个字符最后出现的位置
+        int *badchar = new int [256];//记录模式串中每个字符最后出现的位置
         generateBadChar(b, m, badchar);     //构建坏字符哈希表
-        int* suffix = new int [m];
+        int *suffix = new int [m];
         bool* prefix = new bool [m];
         generateGS(b, m, suffix, prefix);   //预处理模式串，填充suffix，prefix
         int i = 0, j, moveLen1, moveLen2;//j表示主串与模式串匹配的第一个字符

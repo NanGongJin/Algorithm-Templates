@@ -5,12 +5,12 @@ using namespace std;
 // 动态二叉树：优点是不浪费空间，缺点是需要管理
 struct Node {
     int val;
-    Node* l, * r;
-    Node(int val = 0, Node* l = nullptr, Node* r = nullptr) : val(val), l(l), r(r) {}
+    Node *l, *r;
+    Node(int val = 0, Node *l = nullptr, Node *r = nullptr) : val(val), l(l), r(r) {}
 };
 
 // 先序遍历
-void preorder(Node* root, vector<int>& post) {
+void preorder(Node *root, vector<int>& post) {
     if (root) {
         post.push_back(root->val);
         preorder(root->l, post);
@@ -18,7 +18,7 @@ void preorder(Node* root, vector<int>& post) {
     }
 }
 // 中序遍历
-void inorder(Node* root, vector<int>& post) {
+void inorder(Node *root, vector<int>& post) {
     if (root) {
         inorder(root->l, post);
         post.push_back(root->val);
@@ -26,7 +26,7 @@ void inorder(Node* root, vector<int>& post) {
     }
 }
 // 后序遍历
-void postorder(Node* root, vector<int>& post) {
+void postorder(Node *root, vector<int>& post) {
     if (root) {
         postorder(root->l, post);
         postorder(root->r, post);
