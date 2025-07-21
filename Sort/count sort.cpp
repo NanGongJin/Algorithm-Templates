@@ -2,20 +2,19 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-const int N = 1e7 + 5;
-int n, a[N], cnt[N];
+const int N = 1e6 + 5;
+int cnt[N];
 
-void countSort(int *begin, int *end) {
-    int Min = *min_element(begin, end), Max = *max_element(begin, end);
-    if (Max - Min + 1 > 1e7) {
+void countSort(int *bg, int *ed) {
+    int mn = *min_element(bg, ed), mx = *max_element(bg, ed);
+    if (mx - mn > 1e6) {
         cout << "范围过大" << '\n';
         return;
     }
-    int n = end - begin;
-    for (int i = 0; i < n; i++)
-        cnt[begin[i] - Min]++;
-    for (int i = 0, index = 0; i <= Max - Min; i++)
-        while (cnt[i]--) begin[index++] = i + Min;
+    for (int *p = bg; p < ed; p++)
+        cnt[*p - mn]++;
+    for (int i = 0, *p = bg; i <= mx - mn; i++)
+        while (cnt[i]--) *p++ = i + mn;
 }
 
 // 如果需要降序排序，最后再逆序一下或者将最后的for循环的外层换成逆序即可

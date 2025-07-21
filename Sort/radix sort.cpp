@@ -2,7 +2,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-const int N = 1e7 + 5;
+const int N = 1e6 + 5;
 int a[N], t[N];
 
 void radixsort(int l, int r) {  // 将[l, r)内元素升序排序

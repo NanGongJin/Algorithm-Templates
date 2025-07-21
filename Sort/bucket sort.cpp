@@ -4,11 +4,12 @@ using namespace std;
 
 const int N = 1e6 + 5;
 int n, a[N];
+
 void bucketSort(int l, int r) {
-    int Min = *min_element(a + l, a + r), Max = *max_element(a + l, a + r), capacity = (Max - Min) / 100;
+    int mn = *min_element(a + l, a + r), mx = *max_element(a + l, a + r), capacity = (mx - mn) / 100;
     vector<vector<int>> bucket(101);
     for (int i = l; i <= r; i++)
-        bucket[(a[i] - Min) / capacity].push_back(a[i]);
+        bucket[(a[i] - mn) / capacity].push_back(a[i]);
     for (int i = 0, index = l; i <= 100; i++) {
         if (bucket[i].size() == 0) continue;
         sort(bucket[i].begin(), bucket[i].end());
