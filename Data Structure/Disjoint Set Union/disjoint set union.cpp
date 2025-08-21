@@ -6,10 +6,8 @@ const int N = 1e4 + 5;
 int s[N], d[N];
 
 void init() {
-    for (int i = 1; i <= N; i++) {
-        s[i] = i;
-        // d[i] = 0;
-    }
+    iota(s, s + N, 0);
+    // memset(d, 0, sizeof(d));
 }
 
 int find(int x) {

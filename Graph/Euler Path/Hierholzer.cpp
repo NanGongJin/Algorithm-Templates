@@ -19,8 +19,7 @@ vector<int> e[N];
 stack<int> st; // 最后倒序输出
 
 void dfs(int u) {
-    int len = e[u].size();
-    while (del[u] < len)
+    while (del[u] < e[u].size())
         dfs(e[u][del[u]++]);
     st.push(u); // 让遍历完出边的点先入栈，并最后输出，否则会有部分点无法到达
 }
