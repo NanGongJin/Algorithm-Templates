@@ -2,19 +2,17 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-#define lowbit(x) ((x) & -(x))
-
 const int N = 1e5 + 5;
-int n, t[N]; // 下标从1开始，不然无法进行lowbit操作
+int n, t[N]; // 下标从1开始，不然无法进行 lowbit 操作
 
 void add(int x, int d) {
-    for (; x <= n; x += lowbit(x))
+    for (; x <= n; x += x & -x)
         t[x] += d;
 }
 
 int sum(int x) { // [1, x]区间元素和
     int sum = 0;
-    for (; x; x -= lowbit(x))
+    for (; x; x -= x & -x)
         sum += t[x];
     return sum;
 }
@@ -45,14 +43,14 @@ int query(int x) {
  */
 int t1[N], t2[N];
 void add(bool flag, int x, int d) { // flag用于判断是维护哪个数组
-    for (; x <= n; x += lowbit(x))
+    for (; x <= n; x += x & -x)
         if (!flag) t1[x] += d;
         else t2[x] += d;
 }
 
 int sum(bool flag, int x) {
     int sum = 0;
-    for (; x; x -= lowbit(x))
+    for (; x; x -= x & -x)
         if (!flag) sum += t1[x];
         else sum += t2[x];
     return sum;

@@ -1,7 +1,13 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-// 字符串分割
+/**
+ * 字符串分割
+ * 1）如果分隔符只有一种，可以利用 getline 的第三个参数
+ * 2）如果分隔符有多种，可以利用 strtok 或者 s.find_first_of
+ * 3）如果分隔符是字符串，可以利用 s.find
+ * 4）如果分隔符是更为复杂的结构，可以利用 sregex_token_iterator
+ */
 vector<string> split(string s, string sep = " ") {
     vector<string> res;
     unique_ptr<char> str(strdup(s.c_str()));
@@ -32,5 +38,6 @@ void regexSearch() {
  * 5) insert(pos, t) 在 pos 位置插入 t
  * 6) erase(pos, count) 删除从 pos 开始，长度为 count 的子串，如果不指定 count 则到结尾
  * 7) find(t, pos) 从 pos（默认为 0）开始查找 t，返回第一个匹配的下标，未找到则返回 npos
- * 8) replace(pos, count, t) 替换从 pos 开始，长度为 count 的子串为 t
+ * 8) find_first_of(t, pos) 从 pos（默认为 0）开始查找 t 中任意字符，返回第一个匹配的下标，未找到则返回 npos
+ * 9) replace(pos, count, t) 替换从 pos 开始，长度为 count 的子串为 t
  */
