@@ -29,5 +29,10 @@ smatch m; // match_results 模板的一个实例，用于保存 string 的匹配
  * regex_match(s, r) // 是否完全匹配
  * regex_search(s, m, r) // 查找字符串中第一个匹配的字串
  * regex_replace(s, r, str) // 替换匹配的字串
- * sregex_iterator(s, e, r) // 迭代器，遍历所有匹配的字串
+ * sregex_iterator(bg, ed, r) // 迭代器，遍历所有匹配的字串
+ * sregex_token_iterator(bg, ed, r, flag) // 迭代器，遍历所有匹配的字串或不匹配的字串
+ *   -1：返回不匹配的部分（用于分割字符串）
+ *   0：返回整个匹配的部分
+ *   n（正整数）：返回第 n 个捕获组的内容
+ *   {n1, n2, n3...}：返回多个指定捕获组的内容
  */
