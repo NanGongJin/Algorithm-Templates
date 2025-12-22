@@ -196,8 +196,8 @@ struct LCA {
         for (int node : euler) {
             if (node < 0) break;
             u_max = max(u_max, {depth[node], node});
-            ux_max = max(ux_max, {u_max.first - 2 * depth[node], u_max.second});
-            uxv_max = max(uxv_max, {ux_max.first + depth[node], {ux_max.second, node}});
+            ux_max = max(ux_max, {u_max[0] - 2 * depth[node], u_max[1]});
+            uxv_max = max(uxv_max, {ux_max[0] + depth[node], {ux_max[1], node}});
         }
 
         return uxv_max;
