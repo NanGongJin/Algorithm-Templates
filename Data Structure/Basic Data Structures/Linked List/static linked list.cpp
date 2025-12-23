@@ -7,9 +7,9 @@ struct node {
     int id;
     int val;
     int pre, next;
-} nodes[N]; // 节点下标从1开始
+} nodes[N]; // 结点下标从1开始
 
-int n, cnt, head; // cnt：节点数，head：头节点
+int n, cnt, head; // cnt：结点数，head：头结点
 bool exist[N];
 
 void init(int val) {

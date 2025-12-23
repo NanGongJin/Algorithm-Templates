@@ -45,19 +45,19 @@ public:
 
 /**
  * 静态数组存储
- * 也可以用 map<char, int> trie[N] 来存储
- * 0为根节点，trie[i][j]表示id为i的节点的子节点j的id
+ * 也可以用 map<char, int> son[N] 来存储
+ * 0为根结点，son[i][j]表示编号为i的结点的子结点j的编号
  * num[i]：这个前缀出现的次数，v[i]：这个单词对应的值
  */
-const int N = 1e6 + 5;
-int trie[N][26], id, num[N], v[N];
+const int N = 1e5 + 5, M = 2e5 + 5;
+int son[M][26], m, num[M], v[M];
 
 void insert(string& s, int val) {
     int p = 0;
     for(int i = 0; s[i]; i++) {
         int c = s[i] - 'a';
-        if (!trie[p][c]) trie[p][c] = ++id;
-        p = trie[p][c];
+        if (!son[p][c]) son[p][c] = ++m;
+        p = son[p][c];
         num[p]++; // 出现次数加一
     }
     v[p] = val; // 存储值
@@ -66,7 +66,7 @@ void insert(string& s, int val) {
 int search_prefix(string& s) {
     int p = 0;
     for (int i = 0; s[i]; i++) {
-        p = trie[p][s[i] - 'a'];
+        p = son[p][s[i] - 'a'];
         if (!p) return 0; // 找不到
     }
     return num[p]; // 返回这个前缀的出现次数

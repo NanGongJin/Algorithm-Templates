@@ -3,8 +3,8 @@
 using namespace std;
 
 const int N = 1005;
-// 节点下标从0开始
-int n, in[N]; // n节点数，in[]入度
+// 顶点下标从0开始
+int n, in[N]; // n顶点数，in[]入度
 bool dir[N][N], inq[N]; // dir[i][j]：i->j，inq[]已入队
 // 用优先队列保证字典序最小
 priority_queue<int, vector<int>, greater<>> q;
@@ -20,7 +20,7 @@ void init() {
 
 bool bfs() {
     int cnt = 0;
-    while (q.size()) { // 若队列为空后仍然有节点没有入队，说明不是DAG，拓扑排序无解
+    while (q.size()) { // 若队列为空后仍然有顶点没有入队，说明不是DAG，拓扑排序无解
         int p = q.top();
         cout << p << ' ';
         for (int i = 0; i < n; i++)

@@ -3,11 +3,11 @@
 using namespace std;
 
 const int N = 25;
-// 节点下标从0开始
-int n, topo[N], in[N]; // n节点数，topo[]拓扑序，in[]入度
+// 顶点下标从0开始
+int n, topo[N], in[N]; // n顶点数，topo[]拓扑序，in[]入度
 bool dir[N][N], vis[N]; // dir[i][j]：i->j，vis[]访问标记
 
-void dfs(int x, int cnt) { // 节点x的拓扑序是cnt
+void dfs(int x, int cnt) { // 顶点x的拓扑序是cnt
     topo[cnt++] = x;
     if (cnt == n) { // 一个完整的拓扑序
         for (int i = 0; i < n; i++)

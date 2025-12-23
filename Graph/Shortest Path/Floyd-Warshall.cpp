@@ -3,9 +3,9 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-// 节点从1开始编号
+// 顶点从1开始编号
 const int N = 305, INF = INT_MAX; // N：该时间复杂度下最大允许的图的大小
-int n, m, G[N][N], path[N][N]; // n：节点数，m：边数，path[i][j]：i到j的最短路径的下一个节点
+int n, m, G[N][N], path[N][N]; // n：顶点数，m：边数，path[i][j]：i到j的最短路径的下一个顶点
 
 void init() { // 下标从1开始
     for (int i = 1; i <= n; i++)
@@ -19,7 +19,7 @@ void init() { // 下标从1开始
         cin >> u >> v >> w;
         G[v][u] = G[u][v] = w; // 无向图
         // G[u][v] = w; // 有向图
-        // 如果有两个相邻节点之间可能会有多条边，还需要再取最小值
+        // 如果有两个相邻顶点之间可能会有多条边，还需要再取最小值
     }
 }
 

@@ -3,7 +3,7 @@ using namespace std;
 using pii = array<int, 2>;
 
 const int N = 1e5 + 5, inf = 0x7fffffff;
-int n, m, dis[N], pre[N]; // 节点从0开始编号
+int n, m, dis[N], pre[N]; // 顶点从0开始编号
 vector<pii> e[N];
 priority_queue<pii, vector<pii>, greater<>> q; // p[0] 为起点到 p[1] 的距离
 

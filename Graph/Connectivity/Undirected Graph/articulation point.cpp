@@ -17,7 +17,7 @@ void dfs(int u) {
     low[u] = num[u] = ++dfn;
     int child = 0;
     for (int v : e[u]) { // u ←→ v
-        if (num[v]) { // v 被访问过：处理回退边和父节点的情况
+        if (num[v]) { // v 被访问过：处理回退边和父顶点的情况
             low[u] = min(low[u], num[v]);
             continue;
         }

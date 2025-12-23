@@ -2,13 +2,12 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-const int N = 1e5 + 5;
-int son[N][2], idx, num[N]; // idx为0的节点为根节点
+const int N = 1e5 + 5, M = 2e5 + 5;
+int son[M][2], idx, num[M]; // idx为0的结点为根结点
 
 void insert(int x) {
-    int p = 0;
-    for(int i = 30; ~i; i--) {
-        int u = x >> i & 1; //判断x这个数的第i位上的数是1还是0
+    for(int i = 31, p = 0; i--;) { // i: 30 -> 0
+        int u = x >> i & 1; // 判断x这个数的第i位上的数是1还是0
         if(!num[son[p][u]]) son[p][u] = ++idx;
         num[son[p][u]]++;
         p = son[p][u];
@@ -16,8 +15,7 @@ void insert(int x) {
 }
 
 void erase(int x) {
-    int p = 0;
-    for (int i = 30; ~i; i--) {
+    for (int i = 31, p = 0; i--;) {
         int u = x >> i & 1;
         num[son[p][u]]--;
         p = son[p][u];
@@ -25,8 +23,8 @@ void erase(int x) {
 }
 
 int query(int x) {
-    int p = 0, res = 0;
-    for(int i = 30; ~i; i--) {
+    int res = 0;
+    for(int i = 31, p = 0; i--;) {
         int u = x >> i & 1;
         if (num[son[p][!u]]) {
             res += 1 << i;

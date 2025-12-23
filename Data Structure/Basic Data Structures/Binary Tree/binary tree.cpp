@@ -40,7 +40,7 @@ int n;
 struct {
     int val;
     int l, r;
-} t[N]; // 节点下标从1开始
+} t[N]; // 结点下标从1开始
 
 /* 或者直接用三个数组来存储 */
 int l[N], r[N], val[N];

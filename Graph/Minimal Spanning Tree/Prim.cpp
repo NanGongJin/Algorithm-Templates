@@ -1,7 +1,7 @@
 // Prim 算法求最小生成树
 #include <bits/stdc++.h>
 using namespace std;
-using pii = array<int, 2>; // first：距离，second：节点编号
+using pii = array<int, 2>; // first：距离，second：顶点编号
 
 const int N = 5005;
 

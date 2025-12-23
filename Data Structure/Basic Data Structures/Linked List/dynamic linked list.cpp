@@ -7,7 +7,7 @@ struct node {
     node *pre, *next;
 } *head, *tail; // 链表的头和尾
 
-int cnt; // 节点个数
+int cnt; // 结点个数
 
 void init(int val) {
     head = new node{val, nullptr, nullptr};

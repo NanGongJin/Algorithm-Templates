@@ -6,7 +6,7 @@ using pii = array<int, 2>;
 const int N = 1e5 + 5;
 /**
  * d[u]: u 的度数
- * pre[u]: u 的前驱节点
+ * pre[u]: u 的前驱顶点
  */
 int n, m, d[N], pre[N], ans;
 vector<int> e[N];

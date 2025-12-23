@@ -8,8 +8,8 @@ using namespace std;
  */
 const int N = 1e6 + 5;
 int n, m;
-vector<array<int, 2>> e[N]; // 节点下标从1开始
-int pre[N], dis[N], neg[N]; // pre[i]：节点i的前驱节点，dis[i]：节点i到起点的距离，neg[i]：i在队列中出现的次数（用于判断负环）
+vector<array<int, 2>> e[N]; // 顶点下标从1开始
+int pre[N], dis[N], neg[N]; // pre[i]：顶点i的前驱顶点，dis[i]：顶点i到起点的距离，neg[i]：i在队列中出现的次数（用于判断负环）
 bool inq[N]; // 是否在队列中
 
 void init() {

@@ -31,7 +31,7 @@ void update(int L, int R, int p, int l, int r, int io) {
         up(p, l, r);
         return;
     }
-    if (l + 1 == r) return; // 叶子节点
+    if (l + 1 == r) return; // 叶子结点
     if (L <= mid) update(L, R, ls, io);
     if (mid < R) update(L, R, rs, io);
     up(p, l, r);

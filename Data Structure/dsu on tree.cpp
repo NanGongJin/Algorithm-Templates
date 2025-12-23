@@ -5,7 +5,7 @@ using ll = long long;
 
 // 模板
 const int N = 1e5 + 5;
-int n, dep[N], sz[N], hson[N]; // 节点下标从1开始，hson[i]为0表示节点i没有重儿子
+int n, dep[N], sz[N], hson[N]; // 结点下标从1开始，hson[i]为0表示结点i没有重儿子
 vector<int> edges[N];
 
 void dfs0(int u, int fa = -1) {
@@ -60,10 +60,10 @@ void dfs(int u, int fa = -1, bool keep = true) {
 }
 
 // 模板题https://codeforces.com/problemset/problem/600/E
-int color[N], cnt[N], maxn; // 节点下标从1开始
-ll sum, ans[N]; // ans[i]：节点i的启发式合并结果
+int color[N], cnt[N], maxn; // 结点下标从1开始
+ll sum, ans[N]; // ans[i]：结点i的启发式合并结果
 
-void add(int u) { // 增加一个节点的统计信息
+void add(int u) { // 增加一个结点的统计信息
     int n = ++cnt[color[u]];
     if (n > maxn) {
         maxn = n, sum = color[u];
@@ -72,7 +72,7 @@ void add(int u) { // 增加一个节点的统计信息
     }
 }
 
-void del(int u) { // 删除一个节点的统计信息
+void del(int u) { // 删除一个结点的统计信息
     --cnt[color[u]];
 }
 

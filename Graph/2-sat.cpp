@@ -6,7 +6,7 @@ const int N = 1e6 + 5;
 int n, m, sccno[N * 2], cnt;
 vector<int> e[N * 2];
 
-int low[2 * N], num[2 * N], dfn; // 节点下标从1开始
+int low[2 * N], num[2 * N], dfn; // 顶点下标从1开始
 int st[N * 2], top;
 
 void dfs(int u) {

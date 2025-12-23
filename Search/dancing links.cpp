@@ -1,13 +1,13 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-struct node { // 节点
+struct node { // 结点
     int u, d, l, r; // 上下左右
     int row, col; // 行列（从一开始）
 };
 
-int m, n, row[510], ccnt[510], cnt, ans[510]; // 行，列，每行第一个元素，每一列元素的个数，总节点个数
-node links[6000]; // 舞蹈链中的所有元素（用下标来区分不同节点）
+int m, n, row[510], ccnt[510], cnt, ans[510]; // 行，列，每行第一个元素，每一列元素的个数，总结点个数
+node links[6000]; // 舞蹈链中的所有元素（用下标来区分不同结点）
 
 void init() {
     for (int i = 0; i <= n; i++) {
@@ -25,7 +25,7 @@ void init() {
 void addnode(int r, int c) {
     links[++cnt].row = r;
     links[cnt].col = c;
-    links[cnt].u = links[c].u; // 该列的最后一个节点
+    links[cnt].u = links[c].u; // 该列的最后一个结点
     links[cnt].d = c;
     links[links[cnt].u].d = cnt;
     links[c].u = cnt;

@@ -3,7 +3,7 @@
 using namespace std;
 
 const int N = 1e5 + 5;
-int n, d[N], sz[N], hson[N], top[N], fa[N]; // top[u]：表示节点u所在重链的顶部节点
+int n, d[N], sz[N], hson[N], top[N], fa[N]; // top[u]：表示结点u所在重链的顶部结点
 vector<int> e[N];
 
 void dfs1(int u, int f) {
@@ -18,7 +18,7 @@ void dfs1(int u, int f) {
     }
 }
 
-void dfs2(int u, int t) { // 节点u所在重链的顶部节点为t
+void dfs2(int u, int t) { // 结点u所在重链的顶部结点为t
     top[u] = t;
     if (hson[u]) dfs2(hson[u], t);
     for (int v : e[u])
