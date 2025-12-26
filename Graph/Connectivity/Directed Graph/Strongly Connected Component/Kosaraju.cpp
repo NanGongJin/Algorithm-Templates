@@ -8,7 +8,7 @@ const int N = 1e5 + 5;
  * s[]：点的先后顺序，递归越深的点位置越靠前
  * 逆序遍历反图过程中，强连通分量会被“堵住”
  */
-int n, sccno[N], cnt;
+int n, scc[N], cnt;
 vector<int> e[N], re[N], s;
 bool vis[N];
 
@@ -20,15 +20,15 @@ void dfs1(int u) {
 }
 
 void dfs2(int u) {
-    sccno[u] = cnt;
+    scc[u] = cnt;
     for (int v : re[u])
-        if (!sccno[v]) dfs2(v);
+        if (!scc[v]) dfs2(v);
 }
 
 void kosaraju() {
     for (int i = 1; i <= n; i++)
         if (!vis[i]) dfs1(i);
     for (int i = n; i--;)
-        if (!sccno[s[i]])
+        if (!scc[s[i]])
             cnt++, dfs2(s[i]);
 }

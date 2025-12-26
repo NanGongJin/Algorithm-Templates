@@ -1,17 +1,17 @@
 #include "head.cpp"
 
 namespace N_Queens {
-    int n = 13, col[13]; // 超过13会超时
+    int n = 13, c[13]; // 超过13会超时
 
-    int dfs(int row) {
-        if (row == n) return 1;
+    int dfs(int r) {
+        if (r == n) return 1;
         int res = 0;
-        for (int c = 0; c < n; c++) {
-            for (int r = 0; r < row; r++)
-                if (col[r] == c || abs(col[r] - c) == row - r)
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < r; j++)
+                if (c[j] == i || abs(c[j] - i) == r - j)
                     goto end;
-            col[row] = c;
-            res += dfs(row + 1);
+            c[r] = i;
+            res += dfs(r + 1);
             end:;
         }
         return res;
@@ -28,7 +28,7 @@ int find(int n, int m) {
 }
 
 int find(int n, int m) {
-    int f[n] {};
+    int f[n + 1] {};
     for (int i = 1; i <= n; i++)
         f[i] = (f[i - 1] + m) % i;
     return f[n];
