@@ -10,8 +10,8 @@ vector<int> e[N], ne[N];
 // 此处略去求SCC的算法……
 
 void condensation() {
-    for (int i = 1; i <= n; i++)
-        for (int v : e[i])
-            if (scc[i] - scc[v])
-                ne[scc[i]].push_back(scc[v]);
+    for (int u = 1; u <= n; u++)
+        for (int v : e[u])
+            if (scc[u] != scc[v])
+                ne[scc[u]].push_back(scc[v]);
 }

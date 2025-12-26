@@ -11,9 +11,8 @@ private:
         Trie* node = this;
         for (char ch : prefix) {
             ch -= 'a';
-            if (node->children[ch] == nullptr) {
+            if (!node->children[ch])
                 return nullptr;
-            }
             node = node->children[ch];
         }
         return node;
@@ -25,9 +24,8 @@ public:
         Trie* node = this;
         for (char ch : word) {
             ch -= 'a';
-            if (node->children[ch] == nullptr) {
+            if (!node->children[ch])
                 node->children[ch] = new Trie();
-            }
             node = node->children[ch];
         }
         node->isEnd = true;
@@ -35,11 +33,11 @@ public:
 
     bool search(string word) {
         Trie* node = this->searchPrefix(word);
-        return node != nullptr && node->isEnd;
+        return node && node->isEnd;
     }
 
     bool startsWith(string prefix) {
-        return this->searchPrefix(prefix) != nullptr;
+        return this->searchPrefix(prefix);
     }
 };
 
@@ -53,9 +51,10 @@ const int N = 1e5 + 5, M = 2e5 + 5;
 int son[M][26], m, num[M], v[M];
 
 void insert(string& s, int val) {
+    num[0]++;
     int p = 0;
-    for(int i = 0; s[i]; i++) {
-        int c = s[i] - 'a';
+    for(char c : s) {
+        c -= 'a';
         if (!son[p][c]) son[p][c] = ++m;
         p = son[p][c];
         num[p]++; // 出现次数加一
@@ -65,8 +64,8 @@ void insert(string& s, int val) {
 
 int search_prefix(string& s) {
     int p = 0;
-    for (int i = 0; s[i]; i++) {
-        p = son[p][s[i] - 'a'];
+    for (char c : s) {
+        p = son[p][c - 'a'];
         if (!p) return 0; // 找不到
     }
     return num[p]; // 返回这个前缀的出现次数
