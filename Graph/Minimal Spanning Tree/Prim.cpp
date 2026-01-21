@@ -14,14 +14,14 @@ bool done[N];
 int prim() {
     int ans = 0, cnt = 0;
     priority_queue<pii, vector<pii>, greater<>> q;
-    q.push({ 0, 1 });
+    q.push({0, 1});
     while (q.size()) {
         auto [w, u] = q.top(); q.pop();
         if (done[u]) continue;
         ans += w, done[u] = true;
         if (++cnt == n) break; // 提前退出
         for (auto& [v, w] : e[u])
-            if (!done[v]) q.push({ w, v });
+            if (!done[v]) q.push({w, v});
     }
     return cnt == n ? ans : -1; // 如果 cnt != n，说明图不是连通的
 }

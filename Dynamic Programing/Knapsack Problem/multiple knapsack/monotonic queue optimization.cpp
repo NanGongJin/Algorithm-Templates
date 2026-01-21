@@ -29,7 +29,7 @@ int solve() {
         for (int i = 0; i < v; i++) { // 根据V对v求余的值分组，因为dp[k]是从与k求余v相同的dp[k - v]，dp[k - 2 * v]，dp[k - 3 * v]，...转移来的
             for (int k = i; k <= V; k += v) {
                 while (q.size() && q.back()[0] <= dp[k] - k / v * w) q.pop_back(); // 队头->队尾：大->小
-                q.push_back({ dp[k] - k / v * w, k / v });
+                q.push_back({dp[k] - k / v * w, k / v});
                 while (k / v - q.front()[1] > c) q.pop_front(); // 窗口大小为c
                 dp[k] = q.front()[0] + k / v * w;
             }

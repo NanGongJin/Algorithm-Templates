@@ -54,7 +54,7 @@ void dfs(int u, int fa) {
 
 vector<int> get_path() {
     int st = root, ed = root;
-    deque<int> path { root };
+    deque<int> path {root};
     while (pre1[st]) path.push_front(st = pre1[st]);
     while (pre2[ed]) path.push_back(ed = pre2[ed]);
     return vector<int>(path.begin(), path.end());

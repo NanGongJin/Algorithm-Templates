@@ -22,7 +22,8 @@ using vvld = vector<vld>;
 using lll = __int128_t;
 // #define priority_queue std::priority_queue
 #define err(color) cout << "\033[" << color << "m"
-enum { red = 31, green, yellow, blue, purple, cyan }; // 31红，32绿，33黄，34蓝，35紫，36青
+// 31 红，32 绿，33 黄，34 蓝，35 紫，36 青
+enum {red = 31, green, yellow, blue, purple, cyan};
 #define cl "\033[0m" << '\n'
 #define yn(ans) printf("%s\n", (ans) ? "Yes" : "No")
 #define YN(ans) printf("%s\n", (ans) ? "YES" : "NO")

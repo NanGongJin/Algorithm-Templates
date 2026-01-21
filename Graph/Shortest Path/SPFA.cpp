@@ -6,17 +6,17 @@ using namespace std;
  * 如果是有向图，可以有负权边，但不能有负环
  * 如果是无向图，不能有负权边
  */
-const int N = 1e6 + 5;
+const int N = 1e5 + 5;
 int n, m;
-vector<array<int, 2>> e[N]; // 顶点下标从1开始
-int pre[N], dis[N], neg[N]; // pre[i]：顶点i的前驱顶点，dis[i]：顶点i到起点的距离，neg[i]：i在队列中出现的次数（用于判断负环）
+vector<array<int, 2>> e[N]; // 顶点下标从 1 开始
+int pre[N], dis[N], neg[N]; // pre[i]：顶点 i 的前驱顶点，dis[i]：顶点 i 到起点的距离，neg[i]：i 在队列中出现的次数（用于判断负环）
 bool inq[N]; // 是否在队列中
 
 void init() {
-    memset(pre + 1, 0, n << 2);
-    memset(dis + 1, 0x7f, n << 2); // 距离初始化为无穷大
-    memset(neg + 1, 0, n << 2);
-    memset(inq + 1, false, n);
+    memset(pre, 0, sizeof(pre));
+    memset(dis, 0x3f, sizeof(dis)); // 距离初始化为无穷大
+    memset(neg, 0, sizeof(neg));
+    memset(inq, 0, sizeof(inq));
 }
 
 bool spfa(int s) { // 返回值表示是否存在负环

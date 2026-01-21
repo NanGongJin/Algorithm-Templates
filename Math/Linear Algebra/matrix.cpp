@@ -12,7 +12,7 @@ namespace Matrix {
 
         matrix(int n = maxn) : n(n) {
             for (int i = 0; i <= n; i++)
-                memset(mat[i], 0, (n + 1) * sizeof(T));
+                memset(mat[i], 0, sizeof(mat[i]));
             for (int i = 1; i <= n; i++)
                 mat[i][i] = 1;
         }

@@ -6,7 +6,7 @@ const ll INF = 1e18;
 
 // 求解约数个数为n的最小数
 ll n, res = INF;
-int prime[16] { 1, 2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47 }; // prime[15]：第15个素数
+int prime[16] {1, 2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47}; // prime[15]：第15个素数
 // 法一：深度优先搜索
 void dfs(int p, ll val, int num, int up) { // 该第p个素数，目前的值为val，约数个数为num，第p个素数最多up个
     for (ll i = 1, x = prime[p]; i <= up && INF / x >= val; i++, x *= prime[p]) {
