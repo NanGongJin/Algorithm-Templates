@@ -7,7 +7,7 @@ const int N = 1e4 + 5;
 int n, x[N], y[N], w[N];
 double ansx, ansy, dis;
 
-#define Rand() (1.0 * rand() / RAND_MAX)
+#define RAND() (1.0 * rand() / RAND_MAX)
 
 double calc(double xx, double yy) {
     double res = 0;
@@ -22,15 +22,15 @@ double calc(double xx, double yy) {
 void simulateAnneal() {
     double t = 1e12;
     for (double nowx = ansx, nowy = ansy; t > 1e-3; t *= 0.99) {
-        double nxtx = nowx + t * (Rand() * 2 - 1);
-        double nxty = nowy + t * (Rand() * 2 - 1);
+        double nxtx = nowx + t * (RAND() * 2 - 1);
+        double nxty = nowy + t * (RAND() * 2 - 1);
         double delta = calc(nxtx, nxty) - calc(nowx, nowy);
-        if (exp(-delta / t) > Rand())
+        if (exp(-delta / t) > RAND())
             nowx = nxtx, nowy = nxty;
     }
     for (int _ = 1000; _--;) {
-        double nxtx = ansx + t * (Rand() * 2 - 1);
-        double nxty = ansy + t * (Rand() * 2 - 1);
+        double nxtx = ansx + t * (RAND() * 2 - 1);
+        double nxty = ansy + t * (RAND() * 2 - 1);
         calc(nxtx, nxty);
     }
 }

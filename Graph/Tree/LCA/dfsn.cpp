@@ -13,13 +13,13 @@ void dfs(int u, int fa) {
         if (v != fa) dfs(v, u);
 }
 
-#define M(x, y) (dfn[x] < dfn[y] ? x : y)
+#define MIN(x, y) (dfn[x] < dfn[y] ? x : y)
 
 void initST() {
     for (int k = 1; n >> k; k++)
         for (int i = 1; i + (1 << k) - 1 <= n; i++)
             // 父结点中时间戳最小的
-            st[i][k] = M(st[i][k - 1], st[i + (1 << k - 1)][k - 1]);
+            st[i][k] = MIN(st[i][k - 1], st[i + (1 << k - 1)][k - 1]);
 }
 
 int lca(int u, int v) {
@@ -27,7 +27,7 @@ int lca(int u, int v) {
     if ((u = dfn[u]) > (v = dfn[v]))
         swap(u, v); // u <= v
     int d = __lg(v - u++); // 适用 u 是 v 的祖先结点的情况（关键）
-    return M(st[u][d], st[v - (1 << d) + 1][d]);
+    return MIN(st[u][d], st[v - (1 << d) + 1][d]);
 }
 
 // from：https://www.luogu.com.cn/article/pu52m9ue

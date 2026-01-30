@@ -15,7 +15,7 @@ int gcd(int a, int b) { // 非递归版
     return a;
 }
 
-// 也可以用库函数__gcd()和gcd()，前者只能用于非负数
+// 也可以用库函数 __gcd() 和 gcd()，前者只能用于非负数
 
 // 最小公倍数
 int lcm(int a, int b) {

@@ -22,16 +22,16 @@ struct {
     }
 } op[N * 5];
 
-#define lb(x) (x & -x)
+#define lowbit(x) (x & -x)
 
 void add(int x) {
-    for (; x <= k; x += lb(x))
+    for (; x <= k; x += lowbit(x))
         t[x]++;
 }
 
 int sum(int x) {
     int res = 0;
-    for (; x; x -= lb(x))
+    for (; x; x -= lowbit(x))
         res += t[x];
     return res;
 }
