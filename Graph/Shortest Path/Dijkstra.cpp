@@ -1,11 +1,11 @@
 #include <bits/stdc++.h>
 using namespace std;
-using pii = array<int, 2>;
+using aii = array<int, 2>;
 
 const int N = 1e5 + 5;
 int n, m, dis[N], pre[N]; // 顶点从 1 开始编号
-vector<pii> e[N];
-priority_queue<pii, vector<pii>, greater<>> q; // p[0] 为起点到 p[1] 的距离
+vector<aii> e[N];
+priority_queue<aii, vector<aii>, greater<>> q; // [0] 为起点到 [1] 的距离
 
 // 堆优化的 Dijkstra，平均时间复杂度O(mlogn)，最坏时间复杂度（稠密图）O(n²logn)
 void dijkstra(int s) {

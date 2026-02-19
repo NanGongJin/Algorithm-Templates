@@ -1,7 +1,7 @@
 // 三元环计数
 #include <bits/stdc++.h>
 using namespace std;
-using pii = array<int, 2>;
+using aii = array<int, 2>;
 
 const int N = 1e5 + 5;
 /**
@@ -10,7 +10,7 @@ const int N = 1e5 + 5;
  */
 int n, m, d[N], pre[N], ans;
 vector<int> e[N];
-vector<pii> adj; // 存储边
+vector<aii> adj; // 存储边
 
 void solve() {
     for (auto [u, v] : adj) {

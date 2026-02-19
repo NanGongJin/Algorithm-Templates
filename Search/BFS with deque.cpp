@@ -1,14 +1,14 @@
 // BFS 与双端队列——解决边权为 0 或 1 的特殊图问题
 #include <bits/stdc++.h>
 using namespace std;
-using pii = array<int, 2>;
+using aii = array<int, 2>;
 
 // 例题：https://www.luogu.com.cn/problem/P4667
 const int N = 505;
 const int d[] {1, 1, -1, -1, 1};
 int n, m, dis[N][N]; // dis[x][y] 表示从起点到 (x, y) 的最短距离
 bool g[N][N]; // g[i][j]: s[i][j] == '/'
-deque<pii> q;
+deque<aii> q;
 
 int bfs() {
     memset(dis, 0x3f, sizeof(dis));

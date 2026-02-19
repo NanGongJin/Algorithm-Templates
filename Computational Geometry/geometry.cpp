@@ -17,7 +17,7 @@ struct Point {
 // 两点之间距离
 double Distance(const Point& A, const Point& B) { return hypot(A.x - B.x, A.y - B.y); }
 // 向量：用点坐标表示
-typedef Point Vector;
+using Vector = Point;
 // 点积
 double Dot(const Vector& A, const Vector& B) { return A.x * B.x + A.y * B.y; }
 // 向量的长度及其平方
@@ -67,7 +67,7 @@ struct Line {
     }
 };
 // 线段
-typedef Line Segment;
+using Segment = Line;
 // 点和直线的位置关系（大于零为右，小于零为左）
 int Point_line_relation(const Point& p, Line v) { return Cross(p - v.p1, v.p2 - v.p1); }
 // 点到直线的距离

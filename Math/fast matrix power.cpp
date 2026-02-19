@@ -1,12 +1,12 @@
 // 矩阵快速幂
 #include <bits/stdc++.h>
 using namespace std;
-using pii = array<int, 2>;
+using aii = array<int, 2>;
 
 struct matrix {
-    pii mat[2];
+    aii mat[2];
 
-    pii& operator[](int i) { return mat[i]; }
+    aii& operator[](int i) { return mat[i]; }
 
     matrix operator*(matrix& other) {
         matrix res;

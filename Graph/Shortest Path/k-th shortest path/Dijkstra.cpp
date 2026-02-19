@@ -1,10 +1,10 @@
 #include <bits/stdc++.h>
 using namespace std;
-using pii = array<int, 2>;
+using aii = array<int, 2>;
 
 const int N = 1e5 + 5;
 int n, m, dis[N]; // dis[i] 为 i 到终点的最短距离
-vector<pii> e[N];
+vector<aii> e[N];
 
 struct point { // 评估函数：f = g + h（g 为到起点 s 的距离，h 为到终点 t 的距离）
     int u, g, h;

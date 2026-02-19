@@ -1,11 +1,11 @@
 // Prim 算法求最小生成树
 #include <bits/stdc++.h>
 using namespace std;
-using pii = array<int, 2>; // first：距离，second：顶点编号
+using aii = array<int, 2>; // [0]：距离，[1]：顶点编号
 
 const int N = 5005;
 
-vector<pii> e[N];
+vector<aii> e[N];
 int n, m;
 bool done[N];
 
@@ -13,7 +13,7 @@ bool done[N];
 // 小优化：使用 dis 数组保存当前距离某个点的最小值，大于等于该值的边不加入堆
 int prim() {
     int ans = 0, cnt = 0;
-    priority_queue<pii, vector<pii>, greater<>> q;
+    priority_queue<aii, vector<aii>, greater<>> q;
     q.push({0, 1});
     while (q.size()) {
         auto [w, u] = q.top(); q.pop();
