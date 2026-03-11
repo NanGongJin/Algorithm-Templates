@@ -5,7 +5,7 @@ using namespace std;
 class Trie {
 private:
     vector<Trie*> children;
-    bool isEnd;
+    bool is_end;
 
     Trie* searchPrefix(string prefix) {
         Trie* node = this;
@@ -18,7 +18,7 @@ private:
         return node;
     }
 public:
-    Trie() : children(26), isEnd(false) {}
+    Trie() : children(26), is_end(false) {}
 
     void insert(string word) {
         Trie* node = this;
@@ -28,12 +28,12 @@ public:
                 node->children[ch] = new Trie();
             node = node->children[ch];
         }
-        node->isEnd = true;
+        node->is_end = true;
     }
 
     bool search(string word) {
         Trie* node = this->searchPrefix(word);
-        return node && node->isEnd;
+        return node && node->is_end;
     }
 
     bool startsWith(string prefix) {

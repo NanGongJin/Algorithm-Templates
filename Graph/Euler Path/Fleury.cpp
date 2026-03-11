@@ -18,7 +18,7 @@ void dfs(int x) {
 void fleury(int x) {
     int brige, i;
     top = 1;
-    ans[top] = x; // 将起点放入Euler路径中
+    ans[top] = x; // 将起点放入 Euler 路径中
     while (top >= 0) {
         brige = 0;
         for (i = 1; i <= n; i++) // 试图搜索一条边不是割边（桥）
@@ -47,7 +47,7 @@ int main() {
         mp[y][x] = 1;
     }
     num = 0;
-    start = 1; // 这里初始化为1
+    start = 1; // 这里初始化为 1
     for (i = 1; i <= n; i++) {
         deg = 0;
         for (j = 1; j <= n; j++)

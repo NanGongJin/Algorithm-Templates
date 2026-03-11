@@ -31,7 +31,7 @@ using Trie = trie<string, V, trie_string_access_traits<>, pat_trie_tag, trie_pre
 template<class K, class V = null_type, class Cmp = less<>>
 using rb = tree<K, V, Cmp, rb_tree_tag, tree_order_statistics_node_update>;
 /**
- * 1) find_by_order(k) 返回第 k 小（从 0 开始）、也就是排序后下标为 k 的元素的迭代器
+ * 1) find_by_order(i) 返回下标为 i 的元素的迭代器
  * 2) order_of_key(k) 返回小于 k 的元素个数
  * 3) split(k, t) 将大于 k 的元素分裂到树 t 中（当使用 less_equal 时，为大于等于）
  * 4) join(t) 将树 t 中的元素移动到当前树中
@@ -39,7 +39,7 @@ using rb = tree<K, V, Cmp, rb_tree_tag, tree_order_statistics_node_update>;
  * 注意：
  * 当 Cmp 为 less_equal/greater_equal 时（未定义行为）：
  * 树中可以存放重复的键，但是这时使用 find 会返回 end()，进而 erase(x) 会失效；
- * 可以使用 find_by_order(k) 找到第 k 小元素，然后使用 erase 进行删除，或者存放不重复的 pair<K, int> 来代替 K（推荐）
+ * 可以使用 find_by_order(i) 找到下标为 i 的元素，然后使用 erase 进行删除，或者存放不重复的 pair<K, int> 来代替 K（推荐）
  */
 
 template<class K, class V = null_type, class Cmp = less<>>

@@ -4,14 +4,14 @@ using namespace std;
 /**
  * 字符串分割
  * 1）如果分隔符只有一种，可以利用 getline 的第三个参数
- * 2）如果分隔符有多种，可以利用 strtok 或者 s.find_first_of
- * 3）如果分隔符是字符串，可以利用 s.find
+ * 2）如果分隔符有多种，可以利用 strtok 或者 s.find_first_of()
+ * 3）如果分隔符是字符串，可以利用 s.find()
  * 4）如果分隔符是更为复杂的结构，可以利用 sregex_token_iterator
  */
-vector<string> split(string s, string sep = " ") {
+vector<string> split2(char s[], char sep[] = " ") {
     vector<string> res;
-    unique_ptr<char> str(strdup(s.c_str()));
-    for (char* p = strtok(str.get(), sep.c_str()); p; p = strtok(NULL, sep.c_str()))
+    // strtok 函数会修改原字符串，因此 C++ 要用 strdup 创建一个可修改的字符数组副本
+    for (char *p = strtok(s, sep); p; p = strtok(NULL, sep))
         res.emplace_back(p);
     return res;
 }

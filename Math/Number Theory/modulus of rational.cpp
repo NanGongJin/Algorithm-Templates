@@ -4,8 +4,8 @@ using namespace std;
 using ll = long long;
 
 // https://www.luogu.com.cn/problem/P2613
-char A[10005], B[10005];
-const ll mod = 998244353; // 质数
+const ll N = 1e5 + 5, mod = 998244353; // 质数
+char a[N], b[N];
 
 // 快速幂
 ll qpow(ll base, ll exp, ll mod) {
@@ -20,21 +20,21 @@ ll qpow(ll base, ll exp, ll mod) {
 }
 
 int main() {
-    fgets(A, 1048576, stdin);
-    fgets(B, 1048576, stdin);
-    int n = strlen(A), m = strlen(B);
-    ll a = 0, b = 0;
+    fgets(a, N, stdin);
+    fgets(b, N, stdin);
+    int n = strlen(a), m = strlen(b);
+    ll x = 0, y = 0;
     for (int i = 0; i < n; i++) {
-        a = (a * 10 + (A[i] - '0')) % mod;
+        x = (x * 10 + (a[i] - '0')) % mod;
     }
     for (int i = 0; i < m; i++) {
-        b = (b * 10 + (B[i] - '0')) % mod;
+        y = (y * 10 + (b[i] - '0')) % mod;
     }
-    if (!b) {
+    if (!y) {
         printf("Angry!");
     } else {
-        ll b_inv = qpow(b, mod - 2, mod);
-        printf("%lld", (a * b_inv) % mod);
+        ll y_inv = qpow(y, mod - 2, mod);
+        printf("%lld", (x * y_inv) % mod);
     }
     return 0;
 }

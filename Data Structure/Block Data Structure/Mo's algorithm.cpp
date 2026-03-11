@@ -14,14 +14,14 @@ struct node {
     }
 } q[N];
 
-int ANS; // 区间内不同元素的数量
+int res; // 区间内不同元素的数量
 
 void add(int x) {
-    ANS += !cnt[a[x]]++;
+    res += !cnt[a[x]]++;
 }
 
 void del(int x) {
-    ANS -= !--cnt[a[x]];
+    res -= !--cnt[a[x]];
 }
 
 void Mo() {
@@ -34,6 +34,6 @@ void Mo() {
         while (r < q[i].r) add(++r);
         while (l < q[i].l) del(l++);
         while (r > q[i].r) del(r--);
-        ans[q[i].id] = ANS;
+        ans[q[i].id] = res;
     }
 }
