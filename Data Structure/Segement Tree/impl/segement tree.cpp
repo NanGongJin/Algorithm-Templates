@@ -7,7 +7,7 @@ using namespace std;
 const int N = 1e5 + 5;
 int n, v[N];
 
-// 下标要从1开始，因为0 * 2并不是0号结点的左儿子
+// 下标要从 1 开始，因为 0 * 2 并不是 0 号结点的左儿子
 struct node {
     int l, r, v, tag;
 } t[N * 4];
@@ -29,7 +29,7 @@ void build(int p, int l, int r) { // [l, r]
     up(p);
 }
 
-void addtag(int p, int d) { // 如果只有单点修改，不需要用lazy-tag
+void addtag(int p, int d) { // 如果只有单点修改，不需要用 lazy-tag
     t[p].v += d * (t[p].r - t[p].l + 1); // 更新值
     t[p].tag += d; // 打标签
 }

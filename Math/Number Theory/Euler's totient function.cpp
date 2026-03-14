@@ -18,7 +18,7 @@ using namespace std;
  * 2) 若 m > 1，且 b ≥ φ(m)，a ^ b ≡ a ^ (b % φ(m) + φ(m)) (mod m)
  */
 
-// 求解单个欧拉函数，时间复杂度O(√n)
+// 求解单个欧拉函数，时间复杂度 O(√n)
 int euler(int n) {
     int res = n;
     for (int i = 2; i * i <= n; i++)
@@ -30,7 +30,7 @@ int euler(int n) {
     return res;
 }
 
-// 线性筛求1~n内所有的欧拉函数，时间复杂度O(n)
+// 线性筛求 1 ~ n 内所有的欧拉函数，时间复杂度 O(n)
 const int N = 1e5 + 5;
 int n, phi[N];
 bool vis[N];

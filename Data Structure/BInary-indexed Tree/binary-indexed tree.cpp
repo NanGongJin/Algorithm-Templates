@@ -1,9 +1,9 @@
-// 树状数组（也叫Fenwick Tree，因为是Peter M.Fenwick发明的）
+// 树状数组（也叫 Fenwick Tree，因为是 Peter M.Fenwick 发明的）
 #include <bits/stdc++.h>
 using namespace std;
 
 const int N = 1e5 + 5;
-int n, t[N]; // 下标从1开始，不然无法进行 lowbit 操作
+int n, t[N]; // 下标从 1 开始，不然无法进行 lowbit 操作
 
 void add(int x, int d) {
     for (; x <= n; x += x & -x)
@@ -26,7 +26,7 @@ int query(int l, int r) {
     return sum(r) - sum(l - 1);
 }
 
-// 区间修改，单点查询（这时候的tree是差分数组构建出来的树）
+// 区间修改，单点查询（这时候的 tree 是差分数组构建出来的树）
 void update(int l, int r, int d) {
     add(l, d);
     add(r + 1, -d);
@@ -37,22 +37,21 @@ int query(int x) {
 }
 
 /**
- * 区间修改，区间查询[l, r]
+ * 区间修改，区间查询 [l, r]
  * sum(a[1...k]) = ∑ai = k * ∑di - ∑(i - 1) * di, (i in [1, k])
- * => 维护两个树状数组，一个是d[i]，另一个是(i - 1) * d[i]
+ * => 维护两个树状数组，一个是 d[i]，另一个是 (i - 1) * d[i]
  */
 int t1[N], t2[N];
-void add(bool flag, int x, int d) { // flag用于判断是维护哪个数组
+
+void add(bool f, int x, int d) { // f 用于判断是维护哪个数组
     for (; x <= n; x += x & -x)
-        if (!flag) t1[x] += d;
-        else t2[x] += d;
+        f ? t2[x] += d : t1[x] += d;
 }
 
-int sum(bool flag, int x) {
+int sum(bool f, int x) {
     int sum = 0;
     for (; x; x -= x & -x)
-        if (!flag) sum += t1[x];
-        else sum += t2[x];
+        sum += f ? t2[x] : t1[x];
     return sum;
 }
 

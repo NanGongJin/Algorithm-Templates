@@ -3,7 +3,7 @@
 using namespace std;
 
 const int N = 1e5 + 5;
-int n, num[N], maxsub[N]; // n：顶点数，num[i]：以i为根顶点的树的顶点数量，maxsub[i]：顶点i的最大子树的顶点数量
+int n, num[N], maxsub[N]; // n：顶点数，num[i]：以 i 为根顶点的树的顶点数量，maxsub[i]：顶点 i 的最大子树的顶点数量
 vector<int> e[N];
 
 void dfs(int x, int fa) { // fa -> x

@@ -12,7 +12,7 @@ void init() {
 
 void discre() {
     sort(olda + 1, olda + 1 + n);
-    m = unique(olda + 1, olda + 1 + n) - (olda + 1); // 元素个数
+    m = unique(olda + 1, olda + 1 + n) - olda - 1; // 元素个数
     for (int i = 1; i <= n; i++)
         newa[i] = lower_bound(olda + 1, olda + 1 + m, newa[i]) - olda; // 1为最小
 }

@@ -1,11 +1,11 @@
-// 树上启发式合（时间复杂度O(nlogn)）
+// 树上启发式合（时间复杂度 O(nlogn)）
 #include <bits/stdc++.h>
 using namespace std;
 using ll = long long;
 
 // 模板
 const int N = 1e5 + 5;
-int n, dep[N], sz[N], hson[N]; // 结点下标从1开始，hson[i]为0表示结点i没有重儿子
+int n, dep[N], sz[N], hson[N]; // 结点下标从 1 开始，hson[i] 为 0 表示结点 i 没有重儿子
 vector<int> edges[N];
 
 void dfs0(int u, int fa = -1) {
@@ -60,8 +60,8 @@ void dfs(int u, int fa = -1, bool keep = true) {
 }
 
 // 模板题https://codeforces.com/problemset/problem/600/E
-int color[N], cnt[N], maxn; // 结点下标从1开始
-ll sum, ans[N]; // ans[i]：结点i的启发式合并结果
+int color[N], cnt[N], maxn; // 结点下标从 1 开始
+ll sum, ans[N]; // ans[i]：结点 i 的启发式合并结果
 
 void add(int u) { // 增加一个结点的统计信息
     int n = ++cnt[color[u]];
@@ -76,8 +76,8 @@ void del(int u) { // 删除一个结点的统计信息
     --cnt[color[u]];
 }
 
-// 还可以利用子树的dfs序（DFS Numbering）连续的性质，直接循环而不是递归进行addsubtree和delsubtree
-// 修改后的两个dfs函数；不再需要单独写出addsubtree和delsubtree函数
+// 还可以利用子树的 dfs 序（DFS Numbering）连续的性质，直接循环而不是递归进行 addsubtree 和 delsubtree
+// 修改后的两个 dfs 函数；不再需要单独写出 addsubtree 和 delsubtree 函数
 int sz[N], hson[N], L[N], R[N], node[N], cdfsn;
 
 void dfs0(int u, int fa = -1) {
@@ -113,7 +113,7 @@ void dfs(int u, int fa = -1, bool keep = 1) {
 }
 
 /**
- * 更好理解的启发式合并：将小树合并到大树，时间复杂度也是O(nlogn)
+ * 更好理解的启发式合并：将小树合并到大树，时间复杂度也是 O(nlogn)
  * if (t1.size() < t2.size()) swap(t1, t2);
  * t1.merge(t2);
  */
