@@ -6,14 +6,14 @@ const int N = 1e6 + 5, p = 131; // 常用的p值有：31、131、1313、13131…
 
 // 字符串哈希
 ull bkdr(string s) { // 进制哈希（字符串的最左边权值最大）
-    ull hash = 0; // p最好用素数，可以减少碰撞
+    ull hash = 0; // p 最好用素数，可以减少碰撞
     for (int i = 0, n = s.length(); i < n; i++)
         hash = hash * p + s[i]; // 或者hash = hash * p + s[i] - 'a' + 1; ('a'~'z': 1~26)
     return hash;
 }
 
-// prehash：前缀哈希值（prehash[i]：以第i个字符（下标为i - 1）结尾的字符串）
-// pow_[i]：p的i次方（也可以用快速幂求次方，时间复杂度为O(logn)）
+// prehash：前缀哈希值（prehash[i]：以第 i 个字符（下标为 i - 1）结尾的字符串）
+// pow_[i]：p 的 i 次方（也可以用快速幂求次方，时间复杂度为 O(logn)）
 string s;
 ull prehash[N], pow_[N];
 
@@ -26,8 +26,8 @@ void init() {
 }
 
 /**
- * 区间[l, r]内的子字符串的Hash值
- * 当prehash[r + 1] < prehash[l] * pow_[r - l + 1]时，作差的结果仍然是应有的哈希值
+ * 区间 [l, r] 内的子字符串的 Hash 值
+ * 当 prehash[r + 1] < prehash[l] * pow_[r - l + 1] 时，作差的结果仍然是应有的哈希值
  * unsigned(-x) = 2^32 - x；unsigned(UINT_MAX + x) = x
  * 相当于自动加上/减去 2^32
  */

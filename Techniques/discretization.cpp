@@ -1,4 +1,4 @@
-// STL实现离散化
+// STL 实现离散化
 #include <bits/stdc++.h>
 using namespace std;
 
