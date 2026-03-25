@@ -36,7 +36,6 @@ int fastPow1(int x, int n) {
 // 快速幂非递归版
 int fastPow2(int x, int n) {
     int res = 1;
-    x %= mod;
     for (; n; n /= 2) {
         if (n & 1) res = (ll)res * x % mod;
         x = (ll)x * x % mod;

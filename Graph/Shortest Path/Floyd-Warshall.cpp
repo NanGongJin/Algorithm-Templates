@@ -4,7 +4,7 @@
 using namespace std;
 
 // 顶点从 1 开始编号
-const int N = 305, INF = INT_MAX; // N：该时间复杂度下最大允许的图的大小
+const int N = 305, INF = 0x3f3f3f3f; // N：该时间复杂度下最大允许的图的大小
 int n, m, g[N][N], path[N][N]; // n：顶点数，m：边数，path[i][j]：i 到 j 的最短路径的下一个顶点
 
 void init() { // 下标从1开始
@@ -25,26 +25,19 @@ void init() { // 下标从1开始
 
 void floyd() { // 有向图
     for (int k = 1; k <= n; k++) // k 循环必须写在外层
-        for (int i = 1; i <= n; i++) {
-            if (g[i][k] == INF) continue;
-            for (int j = 1; j <= n; j++) {
-                if (g[k][j] == INF) continue;
+        for (int i = 1; i <= n; i++)
+            for (int j = 1; j <= n; j++)
                 if (g[i][k] + g[k][j] < g[i][j]) {
                     g[i][j] = g[i][k] + g[k][j]; // g[i][i] < 0：存在负环
                     path[i][j] = path[i][k];
                 } else if (g[i][k] + g[k][j] == g[i][j] && path[i][j] > path[i][k]) // 若距离相同，要字典序最小的路径
                     path[i][j] = path[i][k];
-            }
-        }
-
 }
 
 void floyd() { // 无向图
     for (int k = 1; k <= n; k++)
-        for (int i = 1; i < n; i++) {
-            if (g[i][k] == INF) continue;
-            for (int j = i + 1; j <= n; j++) {
-                if (g[k][j] == INF) continue;
+        for (int i = 1; i < n; i++)
+            for (int j = i + 1; j <= n; j++)
                 if (g[i][k] + g[k][j] < g[i][j]) {
                     g[j][i] = g[i][j] = g[i][k] + g[k][j]; // 对称性
                     path[i][j] = path[i][k];
@@ -53,8 +46,6 @@ void floyd() { // 无向图
                     if (path[i][j] > path[i][k]) path[i][j] = path[i][k];
                     if (path[j][i] > path[j][k]) path[j][i] = path[j][k];
                 }
-            }
-        }
 }
 
 

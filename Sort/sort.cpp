@@ -13,6 +13,9 @@ void simpleSort(int *begin, int *end) { // 比冒泡排序稍快
                 swap(begin[i], begin[j]);
 }
 
+/**
+ * 
+ */
 void bubbleSort(int *begin, int *end) { // 最慢
     int n = end - begin;
     for (int i = n - 1; i; i--)

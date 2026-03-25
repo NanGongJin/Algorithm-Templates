@@ -10,7 +10,7 @@ unsigned long long fact(int n) {
     return res;
 }
 
-// STL输出全排列
+// STL 输出全排列
 void full_permutation(vector<int> arr) {
     sort(arr.begin(), arr.end());
     do {
@@ -19,7 +19,7 @@ void full_permutation(vector<int> arr) {
     } while (next_permutation(arr.begin(), arr.end()));
 }
 
-// 递归输出从下标first开始的n个元素的全排列
+// 递归输出从下标 first 开始的 n 个元素的全排列
 void Perm(vector<int>& nums, int first, int n) {
     if (first == n) {
         for (int i = 0; i < n; i++) cout << nums[i] << ' ';

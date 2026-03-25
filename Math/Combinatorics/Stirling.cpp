@@ -1,4 +1,4 @@
-// 第二类 Stirling 数
+// 第二类 Stirling 数（集合划分数）
 #include <bits/stdc++.h>
 using namespace std;
 

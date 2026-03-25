@@ -15,7 +15,8 @@ void merge(int d, int x, int y) {
         s[find(x)] = find(y);
         s[find(x + n)] = find(y + n);
         s[find(x + 2 * n)] = find(y + 2 * n);
-    } else { // x 吃 y
+    }
+    if (d == 2) { // x 吃 y
         s[find(x)] = find(y + 2 * n);
         s[find(x + n)] = find(y);
         s[find(x + 2 * n)] = find(y + n);

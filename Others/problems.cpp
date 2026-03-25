@@ -18,7 +18,7 @@ namespace N_Queens {
     }
 }
 
-// 约瑟夫环问题，f(n, m)：n个人，m一轮最后剩下的人的下标idx，idx属于[0, n)
+// 约瑟夫环问题，f(n, m)：n 个人，m 一轮最后剩下的人的下 标idx，idx ∈ [0, n)
 // f(1, m)：0
 // f(n, m) = (f(n - 1, m) + m) % n
 

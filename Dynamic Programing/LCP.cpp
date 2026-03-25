@@ -1,4 +1,4 @@
-// 最长公共前缀（LCP）
+// 最长公共前缀（Longest Common Prefix）
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -9,9 +9,7 @@ int lcp[N][N];
 
 void getLCP() {
     for (int i = n; i--;)
-        for (int j = m; j--;) {
-            if (s1[i] != s2[j]) continue;
-            lcp[i][j] = lcp[i + 1][j + 1] + 1;
-        }
+        for (int j = m; j--;)
+            if (s1[i] == s2[j])
+                lcp[i][j] = lcp[i + 1][j + 1] + 1;
 }
-

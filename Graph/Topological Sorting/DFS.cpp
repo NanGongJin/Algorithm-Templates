@@ -1,13 +1,13 @@
-// 用DFS输出所有的拓扑序
+// 用 DFS 输出所有的拓扑序
 #include <bits/stdc++.h>
 using namespace std;
 
 const int N = 25;
-// 顶点下标从0开始
-int n, topo[N], in[N]; // n顶点数，topo[]拓扑序，in[]入度
-bool dir[N][N], vis[N]; // dir[i][j]：i->j，vis[]访问标记
+// 顶点下标从 0 开始
+int n, topo[N], in[N]; // n: 顶点数，topo[]: 拓扑序，in[]: 入度
+bool dir[N][N], vis[N]; // dir[i][j]: i->j，vis[]: 访问标记
 
-void dfs(int x, int cnt) { // 顶点x的拓扑序是cnt
+void dfs(int x, int cnt) { // 顶点 x 的拓扑序是 cnt
     topo[cnt++] = x;
     if (cnt == n) { // 一个完整的拓扑序
         for (int i = 0; i < n; i++)
