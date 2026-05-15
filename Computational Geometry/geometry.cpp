@@ -2,10 +2,10 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-const long double PI = 3.1415926535897932384l;
+const long double PI = 3.141592653589793L;
 
-// 点
-struct Point {
+// 点/向量
+typedef struct Point {
     long double x, y;
 
     Point(long double x = 0, long double y = 0) : x(x), y(y) {}
@@ -18,16 +18,13 @@ struct Point {
     
     friend Point operator/(Point A, long double k) { return Point(A.x / k, A.y / k); }
     
-    Point operator=(Point B) { return Point(B.x, B.y); }
-    
     friend bool operator==(Point A, Point B) { return A.x == B.x && A.y == B.y; }
-};
+    
+    friend ostream& operator<<(ostream& o, Point p) { return o << p.x << ' ' << p.y; }
+} Vector;
 
 // 两点之间距离
 double Distance(const Point& A, const Point& B) { return hypot(A.x - B.x, A.y - B.y); }
-
-// 向量：用点坐标表示
-using Vector = Point;
 
 // 点积
 double Dot(const Vector& A, const Vector& B) { return A.x * B.x + A.y * B.y; }
@@ -58,16 +55,13 @@ struct Line {
 
     // 两点式：(y - y1) / (y2 - y1) = (x - x1) / (x2 - x1)
     Line(Point p1, Point p2) : p1(p1), p2(p2) {
-        if (p1.x - p2.x)
-            angle = atan((p2.y - p1.y) / (p2.x - p1.x));
-        else angle = PI / 2;
+        angle = p1.x == p2.x ? PI / 2 : atan((p2.y - p1.y) / (p2.x - p1.x));
     }
 
     // 点斜式：y - y0 = tan(angle)(x - x0)
     Line(Point p, long double angle) {
         p1 = p;
-        if (angle == PI / 2) p2 = (p1 + Point(0, 1));
-        else p2 = (p1 + Point(1, tan(angle)));
+        p2 = p + (angle == PI / 2 ? Point(0, 1) : Point(1, tan(angle)));
     }
 
     // 一般式：ax + by + c = 0

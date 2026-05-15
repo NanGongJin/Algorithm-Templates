@@ -8,7 +8,7 @@ using namespace std;
  * 3）如果分隔符是字符串，可以利用 s.find()
  * 4）如果分隔符是更为复杂的结构，可以利用 sregex_token_iterator
  */
-vector<string> split2(char s[], char sep[] = " ") {
+vector<string> split(char s[], char sep[] = " ") {
     vector<string> res;
     // strtok 函数会修改原字符串，因此 C++ 要用 strdup 创建一个可修改的字符数组副本
     for (char *p = strtok(s, sep); p; p = strtok(NULL, sep))
