@@ -19,7 +19,7 @@ int sum(int x) { // [1, x]区间元素和
 
 int lower_bound(int s) { // 最小 x 满足 sum(x) >= s
     int x = 0;
-    for (int k = 1 << 20; k; k >>= 1)
+    for (int k = 1 << 20; k; k /= 2)
         if (x + k <= n && t[x + k] < s) {
             s -= t[x + k];
             x += k;

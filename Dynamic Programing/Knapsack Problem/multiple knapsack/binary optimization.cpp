@@ -3,8 +3,8 @@
 using namespace std;
 
 // n：物品数量，V：背包体积，v[i]：物品体积，w[i]：物品价值
-const int maxn = 1005, maxv = 2e4 + 5, maxcnt = 2e4 + 5;
-int n, V, v[maxcnt], w[maxcnt], cnt; // cnt：组别的个数
+const int N = 1005, M = 5005;
+int n, V, v[M], w[M], cnt; // cnt：组别的个数
 
 void init() { // 转化成01背包 + 二进制优化
     cin >> n >> V;
@@ -12,45 +12,19 @@ void init() { // 转化成01背包 + 二进制优化
         cin >> a >> b >> c;
         for (int k = 1; k <= c; c -= k, k *= 2) { // k：这一组的物品个数
             v[cnt] = a * k;
-            w[cnt] = b * k;
-            cnt++;
+            w[cnt++] = b * k;
         }
         if (c) { // 最后一组
             v[cnt] = a * c;
-            w[cnt] = b * c;
-            cnt++;
+            w[cnt++] = b * c;
         }
     }
 }
 
-int dp[maxcnt][maxv]; // 此时的maxcnt、maxv不得超过1000
-int solve() {
-    for (int i = 0; i < cnt; i++) {
-        for (int j = 1; j < v[i]; j++)
-            dp[i][j] = dp[i - 1][j];
-        for (int j = v[i]; j <= V; j++)
-            if (dp[i][j - v[i]] + w[i] > dp[i][j])
-                dp[i][j] = dp[i][j - v[i]] + w[i];
-            else dp[i][j] = dp[i - 1][j];
-    }
-}
+int dp[M];
 
-vector<int> print() { // 打印路径
-    vector<int> res;
-    for (int i = n - 1, j = V; i >= 0; i--)
-        if (dp[i][j] != dp[i - 1][j]) {
-            res.push_back(w[i]);
-            j -= w[i];
-        }
-    // 如果需要，逆序一下
-    // reverse(res.begin(), res.end());
-}
-
-int solve() { // 滚动数组优化
-    int dp[maxv] {};
+void solve() { // 滚动数组优化
     for (int i = 0; i < cnt; i++)
         for (int j = V; j >= v[i]; j--)
-            if (dp[j] < dp[j - v[i]] + w[i])
-                dp[j] = dp[j - v[i]] + w[i];
-    return dp[V];
+            dp[j] = max(dp[j], dp[j - v[i]] + w[i]);
 }

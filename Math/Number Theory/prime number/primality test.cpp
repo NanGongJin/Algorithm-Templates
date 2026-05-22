@@ -14,13 +14,12 @@ bool is_prime(int n) {
 // Miller-Rabin素性测试
 int a[7] {2, 325, 9375, 28178, 450775, 9780504, 1795265022}; // ll 范围内 100% 正确，int：2, 7, 61
 
-ll fastPow(ll x, ll n, int mod) { // 快速幂非递归版
+ll fpow(ll x, ll n, int mod) { // 快速幂非递归版
     ll res = 1;
     x %= mod;
-    while (n) {
+    for (; n; n /= 2) {
         if (n & 1) res = res * x % mod;
         x = x * x % mod;
-        n >>= 1;
     }
     return res;
 }
@@ -28,11 +27,11 @@ ll fastPow(ll x, ll n, int mod) { // 快速幂非递归版
 bool check(ll a, ll n) { // 检验是否为合数
     ll u = n - 1;
     int t = 0;
-    while ((u & 1) == 0) u >>= 1, t++;
+    while ((u & 1) == 0) u /= 2, t++;
     ll x1, x2;
-    x1 = fastPow(a, u, n);
+    x1 = fpow(a, u, n);
     for (int i = 1; i <= t; i++) {
-        x2 = fastPow(x1, 2, n);
+        x2 = fpow(x1, 2, n);
         if (x2 == 1 && x1 != 1 && x1 != n - 1) return true;
         x1 = x2;
     }

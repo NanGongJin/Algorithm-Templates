@@ -13,7 +13,7 @@ ll qpow(ll base, ll exp, ll mod) {
     while (exp) {
         if (exp & 1)
             ans = (ans * base) % mod;
-        exp >>= 1;
+        exp /= 2;
         base = (base * base) % mod;
     }
     return ans % mod;

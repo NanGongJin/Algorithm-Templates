@@ -1,8 +1,8 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-// 判断是否是2的幂
-#define isPower(x) (x && !(x & x - 1))
+// 判断是否是 2 的幂
+#define is_power(x) (x && !(x & x - 1))
 
 // 消除二进制最后一个1
 int kk = kk & (kk - 1);

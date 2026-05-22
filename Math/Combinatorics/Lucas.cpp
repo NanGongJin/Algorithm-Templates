@@ -8,7 +8,7 @@ int p; // p 是素数
 // 费马小定理求逆元
 int inv(int x) {
     int res = 1;
-    for (int n = p - 2; n; n >>= 1) {
+    for (int n = p - 2; n; n /= 2) {
         if (n & 1) res = (ll)res * x % p;
         x = (ll)x * x % p;
     }

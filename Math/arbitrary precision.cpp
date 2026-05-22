@@ -242,7 +242,7 @@ struct ffter {
             w[i] = w[i & (i - 1)] * w[i & -i];
     }
     void dif(comp *f, int L) {
-        for (int l = L >> 1, r = L; l; l >>= 1, r >>= 1) {
+        for (int l = L / 2, r = L; l; l /= 2, r /= 2) {
             for (comp *k = f; k != f + l; k++) {
                 comp x = *k, y = k[l];
                 *k = x + y, k[l] = x - y;
